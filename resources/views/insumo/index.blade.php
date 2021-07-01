@@ -1,12 +1,17 @@
 @extends('layout.admin')
 
 @section('main')
-    <h3>Insumos</h3>
+
+    
+    <div class="d-flex mt-2 justify-content-between">
+        <h3 class="order-1">Insumos</h3>
+        <a href="{{ route('insumo.create') }}" class="btn btn-success order-2">Agregar insumo</a>
+    </div>
     <div class="row mt-2">
         <div class="col">
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover">
-                    <thead class="bg-dark text-white">
+                    <thead class="bg-dark text-white text-center">
                         <th>Código Insumo</th>
                         <th>Nombre</th>
                         <th>Categoria</th>
@@ -27,11 +32,7 @@
         </div>
     </div>
 
-    <div class="row mt-2">
-        <di class="col">
-            <a href="{{ route('insumo.create') }}" class="btn btn-success">Agregar insumo</a>
-        </di>
-    </div>
+    
 
 
 @endsection

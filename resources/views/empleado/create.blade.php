@@ -3,7 +3,7 @@
 @section('main')
     <div class="row d-flex justify-content-center mt-2">
         <div class="card w-50">
-        <h5 class="card-title mt-2">Agregar Empleado</h5>
+            <h5 class="card-title mt-2">Agregar Empleado</h5>
         <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="form-group mt-2">
                     <label for="tipo_empleado">Tipo de Empleado</label>
-                    <select name="tipo_empleado" id="tipo_empleado" class="form-control @error('tipo_empleado') is-invalid @enderror" value="{{old('tipo_empleado')}}">
+                    <select name="tipo_empleado" id="tipo_empleado" class="form-select form-control @error('tipo_empleado') is-invalid @enderror" value="{{old('tipo_empleado')}}">
                         <option value="A">Administrador</option>
                         <option value="C">Cocinero</option>
                         <option value="B">Barman</option>

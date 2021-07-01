@@ -35,12 +35,26 @@ class InsumoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $insumo = new Insumo();
-        $insumo->nombre = $request->nombre;
-        $insumo->categoria = $request->categoria;
-        $insumo->precio = $request->precio;
-        $insumo->save();
+    {   
+        dd("Aqui");
+        $insumos=Insumo::all();
+        $newCodInsu=0;
+        foreach ($insumos as $insumo => $cod_insu) {
+            if ($cod_insu > $newCodInsu){
+                $newCodInsu = $cod_insu;
+            };
+        };
+        dd($newCodInsu);
+        
+        
+
+
+        $newInsumo = new Insumo();
+        /*$newInsumo->nombre = $request->nombre;
+        $newInsumo->categoria = $request->categoria;
+        $newInsumo->precio = $request->precio;
+        $newInsumo->save();
+        return redirect(route('insumo.index'));*/
     }
 
     /**
