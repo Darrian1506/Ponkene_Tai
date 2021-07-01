@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Insumo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class InsumoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['login']);
+        $this->middleware('auth.admin',['only'=>['index']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,26 +41,26 @@ class InsumoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        dd("Aqui");
+    {
         $insumos=Insumo::all();
         $newCodInsu=0;
-        foreach ($insumos as $insumo => $cod_insu) {
-            if ($cod_insu > $newCodInsu){
-                $newCodInsu = $cod_insu;
-            };
+        if ($insumos) {
+            foreach ($insumos as $insumo => $cod_insu) {
+                if ($cod_insu > $newCodInsu){
+                    $newCodInsu = $cod_insu;
+                };
+            };    
         };
-        dd($newCodInsu);
         
         
 
 
         $newInsumo = new Insumo();
-        /*$newInsumo->nombre = $request->nombre;
+        $newInsumo->nombre = $request->nombre;
         $newInsumo->categoria = $request->categoria;
         $newInsumo->precio = $request->precio;
         $newInsumo->save();
-        return redirect(route('insumo.index'));*/
+        return redirect(route('insumo.index'));
     }
 
     /**

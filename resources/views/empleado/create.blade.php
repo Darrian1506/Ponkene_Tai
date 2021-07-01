@@ -16,7 +16,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('empleado.store') }}">
+            <form method="POST" action="{{route('empleado.store')}}">
                 @csrf
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
@@ -60,7 +60,7 @@
                     <input type="password" name="confirmPassword" id="confirmPassword" class="form-control">
                 </div>
                 <div class="form-group mt-4">
-                    <a href="{{ route('empleado.index') }}" class="btn btn-warning">Cancelar</a>
+                    <a href="{{route('empleado.index')}}" class="btn btn-warning">Cancelar</a>
                     <button type="submit" class="btn btn-primary" >Agregar</button>
                 </div>
             </form>

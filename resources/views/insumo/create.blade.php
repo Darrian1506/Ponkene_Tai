@@ -1,6 +1,7 @@
 @extends('layout.admin')
 
 @section('main')
+    
     <div class="row d-flex justify-content-center mt-2">
         <div class="card w-50">
             <h5 class="card-title mt-2">Agregar Insumos</h5>
@@ -17,6 +18,7 @@
                     </div>
                 @endif
                 {{--Formulario--}}
+                @csrf
                 <form method="POST" action="{{ route('insumo.store') }}">
                     <div class="form-group ">
                         <label for="nombre">Nombre</label>
