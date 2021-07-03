@@ -42,19 +42,6 @@ class InsumoController extends Controller
      */
     public function store(Request $request)
     {
-        $insumos=Insumo::all();
-        $newCodInsu=0;
-        if ($insumos) {
-            foreach ($insumos as $insumo => $cod_insu) {
-                if ($cod_insu > $newCodInsu){
-                    $newCodInsu = $cod_insu;
-                };
-            };    
-        };
-        
-        
-
-
         $newInsumo = new Insumo();
         $newInsumo->nombre = $request->nombre;
         $newInsumo->categoria = $request->categoria;

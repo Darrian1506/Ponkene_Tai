@@ -18,8 +18,9 @@
                     </div>
                 @endif
                 {{--Formulario--}}
-                @csrf
+                
                 <form method="POST" action="{{ route('insumo.store') }}">
+                    @csrf
                     <div class="form-group ">
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{old('nombre')}}">
