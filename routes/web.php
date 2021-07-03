@@ -20,7 +20,7 @@ Route::get('/insumos/agregar-insumo','App\Http\Controllers\InsumoController@crea
 Route::post('insumos','App\Http\Controllers\InsumoController@store')->name('insumo.store');
 
 Route::view('/empleados','empleado.login')->name('empleado.login-form');
-
+/*EMPLEADOS*/
 Route::post('/empleados/login','App\Http\Controllers\EmpleadoController@login')->name('empleado.login');
 Route::get('/empleados/index','App\Http\Controllers\EmpleadoController@index')->name('empleado.index');
 Route::get('/empleados/logout','App\Http\Controllers\EmpleadoController@logout')->name('empleado.logout');
