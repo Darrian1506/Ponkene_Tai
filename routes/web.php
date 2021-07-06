@@ -18,6 +18,10 @@ Route::view('/', 'home.index')->name('inicio');
 Route::get('/insumos','App\Http\Controllers\InsumoController@index')->name('insumo.index');
 Route::get('/insumos/agregar-insumo','App\Http\Controllers\InsumoController@create')->name('insumo.create');
 Route::post('insumos','App\Http\Controllers\InsumoController@store')->name('insumo.store');
+Route::get('/insumos/{insumo}/edit','App\Http\Controllers\InsumoController@edit')->name('insumo.edit');
+Route::put('/insumos/{insumo}','App\Http\Controllers\InsumoController@update')->name('insumo.update');
+Route::delete('/insumos/{insumo}','App\Http\Controllers\InsumoController@destroy')->name('insumo.destroy');
+
 
 Route::view('/empleados','empleado.login')->name('empleado.login-form');
 /*EMPLEADOS*/

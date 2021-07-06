@@ -69,7 +69,7 @@ class InsumoController extends Controller
      */
     public function edit(Insumo $insumo)
     {
-        //
+        return view('insumo.edit',compact('insumo'));
     }
 
     /**
@@ -81,7 +81,14 @@ class InsumoController extends Controller
      */
     public function update(Request $request, Insumo $insumo)
     {
-        //
+        
+        $insumo->nombre = $request->nombre;
+        $insumo->categoria = $request->categoria;
+        $insumo->precio = $request->precio;
+
+        $insumo->save();
+
+        return redirect()->route('insumo.index');
     }
 
     /**
@@ -92,7 +99,8 @@ class InsumoController extends Controller
      */
     public function destroy(Insumo $insumo)
     {
-        //
+        $insumo->delete();
+        return redirect()->route('insumo.index');
     }
 
     

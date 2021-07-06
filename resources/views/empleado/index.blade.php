@@ -3,7 +3,7 @@
 @extends('layout.admin')
 
 @section('main')
-
+    
     <div class="container-fluid mt-2">
         <div class="row d-flex justify-content-around ">
             <div class="col float-left">
@@ -121,6 +121,6 @@
             </div>
         </div>
     </div>
-    
+     
 @endsection
 

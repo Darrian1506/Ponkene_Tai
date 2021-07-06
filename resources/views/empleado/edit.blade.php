@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group mt-2">
                             <label for="tipo_empleado">Tipo de Empleado</label>
-                            <select name="tipo_empleado" id="tipo_empleado" class="form-control @error('email') is-invalid @enderror"  value={{old('tipo_empleado')}}>
+                            <select name="tipo_empleado" id="tipo_empleado" class="form-control @error('tipo_empleado') is-invalid @enderror"  value={{old('tipo_empleado')}}>
                                 <option value="A" @if(old('tipo_empleado',$empleado->tipo_empleado)=='A') selected @endif>Administrador</option>
                                 <option value="C" @if(old('tipo_empleado',$empleado->tipo_empleado)=='C') selected @endif>Cocinero</option>
                                 <option value="B" @if(old('tipo_empleado',$empleado->tipo_empleado)=='B') selected @endif>Barman</option>

@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group mt-2 ">
                         <label for="categoria">Categoría</label>
-                        <select name="" id="categoria" name="categoria" class="form-select form-control @error('categoria') is-invalid @enderror" value="{{old('categoria')}}">
+                        <select name="categoria" id="categoria" name="categoria" class="form-select form-control @error('categoria') is-invalid @enderror" value="{{old('categoria')}}">
                             <option value="G">Guarnición</option>
                             <option value="B">Bebida</option>
                             <option value="E">Ensalada</option>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="form-group mt-2 col-4">
                         <label for="precio">Precio</label>
-                        <input type="number" min="0" id="precio" name="precio" class="form-control @error('precio') is-invalid @enderror" value="{{old('precio')}}">
+                        <input type="number"  min="0" id="precio" name="precio" class="form-control @error('precio') is-invalid @enderror" value="{{old('precio')}}">
                     </div>
                     <div class="form-group mt-2">
                         <a href="{{ route('insumo.index') }}" class="btn btn-warning">Cancelar</a>
