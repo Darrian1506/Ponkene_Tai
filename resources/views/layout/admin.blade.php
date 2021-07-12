@@ -42,7 +42,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('insumo.index')}}">Insumos</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="{{route('plato.index')}}">Platos</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </ul>
                     </li>

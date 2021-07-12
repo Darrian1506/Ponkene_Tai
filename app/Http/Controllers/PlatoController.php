@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Insumo;
+use App\Models\Plato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
-class InsumoController extends Controller
+class PlatoController extends Controller
 {
+
     public function __construct(){
         $this->middleware('auth')->except(['login']);
         $this->middleware('auth.admin',['only'=>['index']]);
@@ -20,8 +21,8 @@ class InsumoController extends Controller
      */
     public function index()
     {
-        $insumos = Insumo::orderBy('categoria')->get();
-        return view('insumo.index', compact('insumos'));
+        $platos = Plato::orderBy('nombre')->get();
+        return view('plato.index',compact('platos'));
     }
 
     /**
@@ -31,7 +32,7 @@ class InsumoController extends Controller
      */
     public function create()
     {
-        return view('insumo.create');
+        return view('plato.create');
     }
 
     /**
@@ -42,21 +43,16 @@ class InsumoController extends Controller
      */
     public function store(Request $request)
     {
-        $newInsumo = new Insumo();
-        $newInsumo->nombre = $request->nombre;
-        $newInsumo->categoria = $request->categoria;
-        $newInsumo->precio = $request->precio;
-        $newInsumo->save();
-        return redirect(route('insumo.index'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Insumo  $insumo
+     * @param  \App\Models\Plato  $plato
      * @return \Illuminate\Http\Response
      */
-    public function show(Insumo $insumo)
+    public function show(Plato $plato)
     {
         //
     }
@@ -64,44 +60,34 @@ class InsumoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Insumo  $insumo
+     * @param  \App\Models\Plato  $plato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Insumo $insumo)
+    public function edit(Plato $plato)
     {
-        return view('insumo.edit',compact('insumo'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Insumo  $insumo
+     * @param  \App\Models\Plato  $plato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Insumo $insumo)
+    public function update(Request $request, Plato $plato)
     {
-        
-        $insumo->nombre = $request->nombre;
-        $insumo->categoria = $request->categoria;
-        $insumo->precio = $request->precio;
-
-        $insumo->save();
-
-        return redirect()->route('insumo.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Insumo  $insumo
+     * @param  \App\Models\Plato  $plato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Insumo $insumo)
+    public function destroy(Plato $plato)
     {
-        $insumo->delete();
-        return redirect()->route('insumo.index');
+        //
     }
-
-    
 }

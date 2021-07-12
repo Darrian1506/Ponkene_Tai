@@ -23,8 +23,9 @@ Route::put('/insumos/{insumo}','App\Http\Controllers\InsumoController@update')->
 Route::delete('/insumos/{insumo}','App\Http\Controllers\InsumoController@destroy')->name('insumo.destroy');
 
 
-Route::view('/empleados','empleado.login')->name('empleado.login-form');
+
 /*EMPLEADOS*/
+Route::view('/empleados','empleado.login')->name('empleado.login-form');
 Route::post('/empleados/login','App\Http\Controllers\EmpleadoController@login')->name('empleado.login');
 Route::get('/empleados/index','App\Http\Controllers\EmpleadoController@index')->name('empleado.index');
 Route::get('/empleados/logout','App\Http\Controllers\EmpleadoController@logout')->name('empleado.logout');
@@ -33,3 +34,7 @@ Route::post('empleados','App\Http\Controllers\EmpleadoController@store')->name('
 Route::delete('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@destroy')->name('empleado.destroy');
 Route::get('/empleados/{empleado}/edit','App\Http\Controllers\EmpleadoController@edit')->name('empleado.edit');
 Route::put('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@update')->name('empleado.update');
+
+/*PLATOS*/
+Route::get('/platos','App\Http\Controllers\PlatoController@index')->name('plato.index');
+Route::get('/platos/agregar-empleado','App\Http\Controllers\PlatoController@create')->name('plato.create');

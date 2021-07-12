@@ -20,5 +20,10 @@ class Insumo extends Authenticable
     protected $table = "insumo";
     protected $primaryKey = "cod_insu";
     public $incrementing = true;
-    /*protected $keyType = "string";*/
+
+    public function plato(){
+        return $this->belongsToMany('App\Model\Plato','cod_plato');
+    }
+
+    
 }
