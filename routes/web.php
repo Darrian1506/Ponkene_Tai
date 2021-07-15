@@ -35,6 +35,8 @@ Route::delete('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@d
 Route::get('/empleados/{empleado}/edit','App\Http\Controllers\EmpleadoController@edit')->name('empleado.edit');
 Route::put('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@update')->name('empleado.update');
 
+Route::post('/empleados/loginapi','App\Http\Controllers\EmpleadoController@loginApi')->name('empleado.loginApi');
+
 /*PLATOS*/
 Route::get('/platos','App\Http\Controllers\PlatoController@index')->name('plato.index');
 Route::get('/platos/agregar-empleado','App\Http\Controllers\PlatoController@create')->name('plato.create');

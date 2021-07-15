@@ -144,6 +144,15 @@ class EmpleadoController extends Controller
         }
     }
 
+    public function loginApi(LoginEmpleadoRequest $request){
+        $credenciales = $request->only('rut','password');
+        if(Auth::attempt($credenciales)){
+            return response(['message'=>'OK']);
+        }else{
+            return response(['message'=>'FAil']);
+        }
+    }
+
 
     public function logout()
     {
