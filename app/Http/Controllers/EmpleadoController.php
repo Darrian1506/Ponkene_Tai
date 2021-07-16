@@ -131,10 +131,12 @@ class EmpleadoController extends Controller
         $credenciales = $request->only('rut','password');
         if(Auth::attempt($credenciales)){
             //credenciales correctas
-            return redirect()->route('empleado.index');
+            //return redirect()->route('empleado.index');
+            dd('Ok');
         }else{
             //credenciales incorrectas
-            throw ValidationException::withMessages(['password' =>'Estas credenciales no coinciden con nuestros registros']);
+            dd('FAIL');
+            //throw ValidationException::withMessages(['password' =>'Estas credenciales no coinciden con nuestros registros']);
         }
     }
 
