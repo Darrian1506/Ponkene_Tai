@@ -135,7 +135,8 @@ class EmpleadoController extends Controller
         if(Auth::attempt($credenciales)){
             //credenciales correctas
             //dd('credenciales ok');
-            return redirect()->route('empleado.index');
+            return response(['message'=>'OK']);
+            //return redirect()->route('empleado.index');
         }else{
             //credenciales incorrectas
             
@@ -148,9 +149,13 @@ class EmpleadoController extends Controller
         $credenciales = $request->only('rut','password');
         if(Auth::attempt($credenciales)){
             return response(['message'=>'OK']);
-        }else{
-            return response(['message'=>'FAil']);
         }
+
+        $accessToken = Auth::user()->createToken('authToken')->accessToken;
+        return response([
+            'user'=> Auth::user(),
+            'access_token'=>$accessToken
+        ]);
     }
 
 
