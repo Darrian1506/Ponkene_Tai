@@ -102,7 +102,6 @@ class EmpleadoController extends Controller
      */
     public function update(EditEmpleadoRequest $request, Empleado $empleado)
     {
-        $empleado->rut = $request->rut;
         $empleado->nombre = $request->nombre;
         $empleado->apellido = $request->apellido;
         $empleado->password = Hash::make($request->password);
@@ -126,22 +125,16 @@ class EmpleadoController extends Controller
     {
         $empleado->delete();
         return redirect()->route('empleado.index');
-        
-
     }
 
     public function login(LoginEmpleadoRequest $request){
         $credenciales = $request->only('rut','password');
         if(Auth::attempt($credenciales)){
             //credenciales correctas
-            //dd('credenciales ok');
-            return response(['message'=>'OK']);
-            //return redirect()->route('empleado.index');
+            return redirect()->route('empleado.index');
         }else{
             //credenciales incorrectas
-            
             throw ValidationException::withMessages(['password' =>'Estas credenciales no coinciden con nuestros registros']);
-            
         }
     }
 

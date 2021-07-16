@@ -29,10 +29,6 @@
                             <input type="text" name="apellido" id="apellido" class="form-control  @error('apellido') is-invalid @enderror" value="{{old('apellido',$empleado->apellido)}}">
                         </div>
                         <div class="form-group mt-2">
-                            <label for="rut">Rut</label>
-                            <input type="text" name="rut" id="rut" class="form-control  @error('rut') is-invalid @enderror"  value="{{old('rut',$empleado->rut)}}">
-                        </div>
-                        <div class="form-group mt-2">
                             <label for="fono">Fono</label>
                             <input type="text" name="fono" id="fono" class="form-control  @error('fono') is-invalid @enderror" value="{{old('fono',$empleado->fono)}}">
                         </div>
