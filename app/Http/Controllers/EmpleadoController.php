@@ -131,26 +131,29 @@ class EmpleadoController extends Controller
         $credenciales = $request->only('rut','password');
         if(Auth::attempt($credenciales)){
             //credenciales correctas
-            //return redirect()->route('empleado.index');
-            dd('Ok');
+            return redirect()->route('empleado.index');
         }else{
             //credenciales incorrectas
-            dd('FAIL');
-            //throw ValidationException::withMessages(['password' =>'Estas credenciales no coinciden con nuestros registros']);
+            throw ValidationException::withMessages(['password' =>'Estas credenciales no coinciden con nuestros registros']);
         }
     }
 
-    public function loginApi(LoginEmpleadoRequest $request){
+    public function loginApp(LoginEmpleadoRequest $request){
         $credenciales = $request->only('rut','password');
-        if(Auth::attempt($credenciales)){
-            return response(['message'=>'OK']);
+        if(!Auth::attempt($credenciales)){
+            return response(['message'=>'Credenciales erroneas']);
+        } else {
+            $user = Auth::user();
+            if($user['tipo_empleado'] == 'M'){
+                return response([
+                    'message' => 'OK'
+                ]);
+            } else {
+                return response([
+                    'message' => 'Usted no es mesero'
+                ]);
+            }
         }
-
-        $accessToken = Auth::user()->createToken('authToken')->accessToken;
-        return response([
-            'user'=> Auth::user(),
-            'access_token'=>$accessToken
-        ]);
     }
 
 

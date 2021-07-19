@@ -35,8 +35,7 @@ Route::delete('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@d
 Route::get('/empleados/{empleado}/edit','App\Http\Controllers\EmpleadoController@edit')->name('empleado.edit');
 Route::put('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@update')->name('empleado.update');
 
-Route::post('/empleados/loginApi','App\Http\Controllers\EmpleadoController@loginApi')->name('empleado.loginApi');
-//Route::apiResource('empleados', 'EmpleadoController')->middleware('auth:api');
+Route::post('/empleados/loginapp','App\Http\Controllers\EmpleadoController@loginApp')->name('empleado.loginApp');
 
 /*PLATOS*/
 Route::get('/platos','App\Http\Controllers\PlatoController@index')->name('plato.index');
