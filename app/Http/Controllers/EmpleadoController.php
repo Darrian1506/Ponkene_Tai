@@ -138,7 +138,7 @@ class EmpleadoController extends Controller
         }
     }
 
-    public function loginApp(Request $request){
+    public function login2(Request $request){
         $credenciales = $request->only('rut','password');
         if(!Auth::attempt($credenciales)){
             return response(['message'=>'Credenciales erroneas']);
