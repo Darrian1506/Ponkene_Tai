@@ -138,7 +138,7 @@ class EmpleadoController extends Controller
         }
     }
 
-    public function loginApp(LoginEmpleadoRequest $request){
+    public function loginApp(Request $request){
         $credenciales = $request->only('rut','password');
         if(!Auth::attempt($credenciales)){
             return response(['message'=>'Credenciales erroneas']);
@@ -146,11 +146,11 @@ class EmpleadoController extends Controller
             $user = Auth::user();
             if($user['tipo_empleado'] == 'M'){
                 return response([
-                    'message' => 'OK'
+                    'message' => 'SI'
                 ]);
             } else {
                 return response([
-                    'message' => 'Usted no es mesero'
+                    'message' => 'NO'
                 ]);
             }
         }
