@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plato;
+use App\Models\Insumo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -32,7 +33,8 @@ class PlatoController extends Controller
      */
     public function create()
     {
-        return view('plato.create');
+        $insumos = Insumo::orderBy('categoria')->get();
+        return view('plato.create',compact('insumos'));
     }
 
     /**
@@ -43,7 +45,17 @@ class PlatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $plato = new Plato();
+        $plato->nombre = $request->nombre;
+        $plato->precio = $request->precio;
+        $plato->save();
+
+
+        for ($i=0; $i < count($request->insumo); $i++) { 
+            $plato->insumo()->attach(($request->insumo)[$i]);
+        }
+        return redirect(route('plato.index'));
+        
     }
 
     /**

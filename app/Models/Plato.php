@@ -19,6 +19,6 @@ class Plato extends Authenticable
     public $timestamps = false;
 
     public function insumo(){
-        return $this->belongsToMany('App\Model\Insumo','cod_insu');
+        return $this->belongsToMany('App\Models\Insumo','cod_insu');
     }
 }

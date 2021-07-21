@@ -40,3 +40,4 @@ Route::post('/empleados/loginapp','App\Http\Controllers\EmpleadoController@login
 /*PLATOS*/
 Route::get('/platos','App\Http\Controllers\PlatoController@index')->name('plato.index');
 Route::get('/platos/agregar-empleado','App\Http\Controllers\PlatoController@create')->name('plato.create');
+Route::post('/platos','App\Http\Controllers\PlatoController@store')->name('plato.store');

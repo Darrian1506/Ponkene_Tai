@@ -22,7 +22,7 @@ class Insumo extends Authenticable
     public $incrementing = true;
 
     public function plato(){
-        return $this->belongsToMany('App\Model\Plato','cod_plato');
+        return $this->belongsToMany('App\Models\Plato','cod_plato');
     }
 
     
