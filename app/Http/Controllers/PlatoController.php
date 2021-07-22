@@ -77,7 +77,8 @@ class PlatoController extends Controller
      */
     public function edit(Plato $plato)
     {
-        //
+        $insumos = Insumo::all();
+        return view('plato.edit',compact('plato','insumos'));
     }
 
     /**
@@ -89,7 +90,16 @@ class PlatoController extends Controller
      */
     public function update(Request $request, Plato $plato)
     {
-        //
+        $plato->nombre = $request->nombre;
+        $plato->precio = $request->precio;
+        $plato->save();
+        for ($i=0; $i < count($plato->insumo) ; $i++) { 
+            $plato->insumo()->detach(($plato->insumo)[$i]);
+        }
+        for ($i=0; $i < count($request->insumo); $i++) { 
+            $plato->insumo()->attach(($request->insumo)[$i]);
+        }
+        return redirect()->route('plato.index');
     }
 
     /**
@@ -100,6 +110,7 @@ class PlatoController extends Controller
      */
     public function destroy(Plato $plato)
     {
-        //
+        $plato->delete();
+        return redirect()->route('plato.index');
     }
 }

@@ -49,7 +49,7 @@
                                     </tbody>
                                 </table>--}}
                             </div>
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-4">
                                 <a href="{{ route('plato.index') }}" class="btn btn-warning">Cancelar</a>
                                 <button type="submit" class="btn btn-primary" >Agregar</button>
                             </div>
