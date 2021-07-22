@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /*class Insumo extends Model
 {
@@ -17,12 +18,13 @@ use Illuminate\Notifications\Notifiable;
 class Insumo extends Authenticable
 {
     use Notifiable;
+    use SoftDeletes; 
     protected $table = "insumo";
     protected $primaryKey = "cod_insu";
     public $incrementing = true;
 
     public function plato(){
-        return $this->belongsToMany('App\Models\Plato','cod_plato');
+        return $this->belongsToMany('App\Models\Plato','insumo_plato');
     }
 
     

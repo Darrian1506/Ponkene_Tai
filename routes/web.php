@@ -43,3 +43,6 @@ Route::put('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@upda
 Route::get('/platos','App\Http\Controllers\PlatoController@index')->name('plato.index');
 Route::get('/platos/agregar-empleado','App\Http\Controllers\PlatoController@create')->name('plato.create');
 Route::post('/platos','App\Http\Controllers\PlatoController@store')->name('plato.store');
+Route::delete('/platos/{plato}','App\Http\Controllers\PlatoController@destroy')->name('plato.destroy');
+Route::get('/platos/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
+Route::put('/platos/{plato}','App\Http\Controllers\PlatoController@update')->name('plato.update');
