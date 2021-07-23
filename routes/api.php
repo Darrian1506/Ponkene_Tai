@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\InsumoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/loginapi', [EmpleadoController::class, 'loginApi']);
+
+Route::get('/insumos/index', [InsumoController::class, 'indexApi']);

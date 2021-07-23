@@ -26,8 +26,6 @@ Route::delete('/insumos/{insumo}','App\Http\Controllers\InsumoController@destroy
 
 /*EMPLEADOS*/
 
-Route::post('/empleados/login2','App\Http\Controllers\EmpleadoController@login2')->name('empleado.login2');
-
 Route::view('/empleados','empleado.login')->name('empleado.login-form');
 Route::post('/empleados/login','App\Http\Controllers\EmpleadoController@login')->name('empleado.login');
 Route::get('/empleados/index','App\Http\Controllers\EmpleadoController@index')->name('empleado.index');

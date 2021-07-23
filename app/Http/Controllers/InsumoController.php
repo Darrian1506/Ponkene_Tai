@@ -10,7 +10,7 @@ use Illuminate\Validation\ValidationException;
 class InsumoController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth')->except(['login']);
+        $this->middleware('auth')->except(['login', 'indexApi']);
         $this->middleware('auth.admin',['only'=>['index']]);
     }
     /**
@@ -21,7 +21,13 @@ class InsumoController extends Controller
     public function index()
     {
         $insumos = Insumo::orderBy('categoria')->get();
+        //return Insumo::all();
         return view('insumo.index', compact('insumos'));
+    }
+
+    public function indexApi()
+    {
+        return Insumo::all();
     }
 
     /**

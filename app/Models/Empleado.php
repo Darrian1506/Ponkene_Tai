@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 
 /*class Empleado extends Model
 {
@@ -15,7 +14,7 @@ use Laravel\Passport\HasApiTokens;
 
 class Empleado extends Authenticable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable;
     protected $table = "empleado";
     protected $primaryKey = "rut";
     public $incrementing = false;

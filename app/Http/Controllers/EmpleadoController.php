@@ -16,7 +16,7 @@ class EmpleadoController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('auth')->except(['login']);
+        $this->middleware('auth')->except(['login', 'loginApi']);
         $this->middleware('auth.admin',['only'=>['index']]);
     }
     /**
@@ -138,14 +138,15 @@ class EmpleadoController extends Controller
         }
     }
 
-    public function login2(Request $request){
+    public function loginApi(Request $request){
         $credenciales = $request->only('rut','password');
         if(!Auth::attempt($credenciales)){
             return response(['message'=>'Credenciales erroneas']);
         } else {
             $user = Auth::user();
-            if($user['tipo_empleado'] == 'M'){
+            if($user['tipo_empleado'] == 'M' || $user['tipo_empleado'] == 'A' ){
                 return response([
+                    'user' => $user,
                     'message' => 'SI'
                 ]);
             } else {
@@ -163,6 +164,8 @@ class EmpleadoController extends Controller
         return redirect()->route('empleado.login-form');
     }
 
-
+    public function indexApi(Request $request){
+        return Empleados::all();
+    }
     
 }
