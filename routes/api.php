@@ -23,4 +23,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/loginapi', [EmpleadoController::class, 'loginApi']);
 
-Route::get('/insumos/index', [InsumoController::class, 'indexApi']);

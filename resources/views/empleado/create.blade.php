@@ -4,7 +4,7 @@
     <div class="row d-flex justify-content-center mt-2">
         <div class="card w-50">
             <h5 class="card-title mt-2">Agregar Empleado</h5>
-        <div class="card-body">
+            <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <p>Se han producido los siguentes errores:</p>

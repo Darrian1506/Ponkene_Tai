@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class="nav item">
-                        <a href="#" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
+                        <a href="{{route('reserva.index')}}" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Reservas
                         </a>
                     </li>

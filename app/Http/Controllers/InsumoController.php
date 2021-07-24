@@ -10,7 +10,7 @@ use Illuminate\Validation\ValidationException;
 class InsumoController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth')->except(['login', 'indexApi']);
+        $this->middleware('auth')->except(['login']);
         $this->middleware('auth.admin',['only'=>['index']]);
     }
     /**

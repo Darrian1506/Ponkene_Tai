@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home.index')->name('inicio');
 
+/*INSUMOS*/
+
 Route::get('/insumos','App\Http\Controllers\InsumoController@index')->name('insumo.index');
 Route::get('/insumos/agregar-insumo','App\Http\Controllers\InsumoController@create')->name('insumo.create');
 Route::post('insumos','App\Http\Controllers\InsumoController@store')->name('insumo.store');
 Route::get('/insumos/{insumo}/edit','App\Http\Controllers\InsumoController@edit')->name('insumo.edit');
 Route::put('/insumos/{insumo}','App\Http\Controllers\InsumoController@update')->name('insumo.update');
 Route::delete('/insumos/{insumo}','App\Http\Controllers\InsumoController@destroy')->name('insumo.destroy');
-
-
 
 /*EMPLEADOS*/
 
@@ -36,11 +36,20 @@ Route::delete('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@d
 Route::get('/empleados/{empleado}/edit','App\Http\Controllers\EmpleadoController@edit')->name('empleado.edit');
 Route::put('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@update')->name('empleado.update');
 
-
 /*PLATOS*/
-Route::get('/platos','App\Http\Controllers\PlatoController@index')->name('plato.index');
-Route::get('/platos/agregar-empleado','App\Http\Controllers\PlatoController@create')->name('plato.create');
+
+Route::get('/platos/index','App\Http\Controllers\PlatoController@index')->name('plato.index');
+Route::get('/platos/agregar-plato','App\Http\Controllers\PlatoController@create')->name('plato.create');
 Route::post('/platos','App\Http\Controllers\PlatoController@store')->name('plato.store');
 Route::delete('/platos/{plato}','App\Http\Controllers\PlatoController@destroy')->name('plato.destroy');
 Route::get('/platos/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
 Route::put('/platos/{plato}','App\Http\Controllers\PlatoController@update')->name('plato.update');
+
+/*RESERVA*/
+
+Route::get('/reserva/index','App\Http\Controllers\ReservaController@index')->name('reserva.index');
+Route::get('/reserva/crear-reserva','App\Http\Controllers\ReservaController@create')->name('reserva.create');
+Route::post('/reserva','App\Http\Controllers\ReservaController@store')->name('reserva.store');
+//Route::delete('/platos/{plato}','App\Http\Controllers\PlatoController@destroy')->name('plato.destroy');
+//Route::get('/reserva/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
+Route::put('/reserva/{reserva}/{estado}','App\Http\Controllers\ReservaController@update')->name('reserva.update');
