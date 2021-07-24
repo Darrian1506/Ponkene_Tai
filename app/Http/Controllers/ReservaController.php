@@ -9,7 +9,7 @@ use App\Http\Requests\StoreReservaRequest;
 class ReservaController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth')->except(['create', 'store']);
+        $this->middleware('auth')->except(['create', 'store', 'indexApi']);
 
     }
     /**
@@ -109,5 +109,9 @@ class ReservaController extends Controller
     public function destroy(Reserva $reserva)
     {
         //
+    }
+
+    public function indexApi(){
+        return Reserva::all();
     }
 }
