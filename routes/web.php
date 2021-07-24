@@ -17,39 +17,39 @@ Route::view('/', 'home.index')->name('inicio');
 
 /*INSUMOS*/
 
-Route::get('/insumos','App\Http\Controllers\InsumoController@index')->name('insumo.index');
-Route::get('/insumos/agregar-insumo','App\Http\Controllers\InsumoController@create')->name('insumo.create');
-Route::post('insumos','App\Http\Controllers\InsumoController@store')->name('insumo.store');
-Route::get('/insumos/{insumo}/edit','App\Http\Controllers\InsumoController@edit')->name('insumo.edit');
-Route::put('/insumos/{insumo}','App\Http\Controllers\InsumoController@update')->name('insumo.update');
-Route::delete('/insumos/{insumo}','App\Http\Controllers\InsumoController@destroy')->name('insumo.destroy');
+Route::get('/insumos','InsumoController@index')->name('insumo.index');
+Route::get('/insumos/agregar-insumo','InsumoController@create')->name('insumo.create');
+Route::post('insumos','InsumoController@store')->name('insumo.store');
+Route::get('/insumos/{insumo}/edit','InsumoController@edit')->name('insumo.edit');
+Route::put('/insumos/{insumo}','InsumoController@update')->name('insumo.update');
+Route::delete('/insumos/{insumo}','InsumoController@destroy')->name('insumo.destroy');
 
 /*EMPLEADOS*/
 
 Route::view('/empleados','empleado.login')->name('empleado.login-form');
-Route::post('/empleados/login','App\Http\Controllers\EmpleadoController@login')->name('empleado.login');
-Route::get('/empleados/index','App\Http\Controllers\EmpleadoController@index')->name('empleado.index');
-Route::get('/empleados/logout','App\Http\Controllers\EmpleadoController@logout')->name('empleado.logout');
-Route::get('/empleados/agregar-empleado','App\Http\Controllers\EmpleadoController@create')->name('empleado.create');
-Route::post('empleados','App\Http\Controllers\EmpleadoController@store')->name('empleado.store');
-Route::delete('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@destroy')->name('empleado.destroy');
-Route::get('/empleados/{empleado}/edit','App\Http\Controllers\EmpleadoController@edit')->name('empleado.edit');
-Route::put('/empleados/{empleado}','App\Http\Controllers\EmpleadoController@update')->name('empleado.update');
+Route::post('/empleados/login','EmpleadoController@login')->name('empleado.login');
+Route::get('/empleados/index','EmpleadoController@index')->name('empleado.index');
+Route::get('/empleados/logout','EmpleadoController@logout')->name('empleado.logout');
+Route::get('/empleados/agregar-empleado','EmpleadoController@create')->name('empleado.create');
+Route::post('empleados','EmpleadoController@store')->name('empleado.store');
+Route::delete('/empleados/{empleado}','EmpleadoController@destroy')->name('empleado.destroy');
+Route::get('/empleados/{empleado}/edit','EmpleadoController@edit')->name('empleado.edit');
+Route::put('/empleados/{empleado}','EmpleadoController@update')->name('empleado.update');
 
 /*PLATOS*/
 
-Route::get('/platos/index','App\Http\Controllers\PlatoController@index')->name('plato.index');
-Route::get('/platos/agregar-plato','App\Http\Controllers\PlatoController@create')->name('plato.create');
-Route::post('/platos','App\Http\Controllers\PlatoController@store')->name('plato.store');
-Route::delete('/platos/{plato}','App\Http\Controllers\PlatoController@destroy')->name('plato.destroy');
-Route::get('/platos/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
-Route::put('/platos/{plato}','App\Http\Controllers\PlatoController@update')->name('plato.update');
+Route::get('/platos/index','PlatoController@index')->name('plato.index');
+Route::get('/platos/agregar-plato','PlatoController@create')->name('plato.create');
+Route::post('/platos','PlatoController@store')->name('plato.store');
+Route::delete('/platos/{plato}','PlatoController@destroy')->name('plato.destroy');
+Route::get('/platos/{plato}/edit','PlatoController@edit')->name('plato.edit');
+Route::put('/platos/{plato}','PlatoController@update')->name('plato.update');
 
 /*RESERVA*/
 
-Route::get('/reserva/index','App\Http\Controllers\ReservaController@index')->name('reserva.index');
-Route::get('/reserva/crear-reserva','App\Http\Controllers\ReservaController@create')->name('reserva.create');
-Route::post('/reserva','App\Http\Controllers\ReservaController@store')->name('reserva.store');
+Route::get('/reserva/index','ReservaController@index')->name('reserva.index');
+Route::get('/reserva/crear-reserva','ReservaController@create')->name('reserva.create');
+Route::post('/reserva','ReservaController@store')->name('reserva.store');
 //Route::delete('/platos/{plato}','App\Http\Controllers\PlatoController@destroy')->name('plato.destroy');
 //Route::get('/reserva/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
-Route::put('/reserva/{reserva}/{estado}','App\Http\Controllers\ReservaController@update')->name('reserva.update');
+Route::put('/reserva/{reserva}/{estado}','ReservaController@update')->name('reserva.update');
