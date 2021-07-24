@@ -19,4 +19,8 @@ class Empleado extends Authenticable
     protected $primaryKey = "rut";
     public $incrementing = false;
     protected $keyType = "string";
+
+    public function reservas(){
+        return $this->hasMany('App\Models\Reserva', 'cod_reserva');
+    }
 }

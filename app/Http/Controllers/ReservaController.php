@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Reserva;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreReservaRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ReservaController extends Controller
 {
@@ -89,6 +90,7 @@ class ReservaController extends Controller
         $datos = Reserva::find($reserva);
         $reserva->fecha = $datos[0]->fecha;
         $reserva->hora = $datos[0]->hora;
+        $reserva->rut = Auth::user()->rut;
         $reserva->rutCliente = $datos[0]->rutCliente;
         $reserva->nombre = $datos[0]->nombre;
         $reserva->apellido = $datos[0]->apellido;

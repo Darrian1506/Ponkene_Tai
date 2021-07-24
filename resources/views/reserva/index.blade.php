@@ -21,13 +21,12 @@
                         <th>Estado</th>
                         <th>Fecha</th>
                         <th>Hora</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
+                        <th>Nombre Cliente</th>
                         <th>Rut Cliente</th>
                         <th>Numero de Contacto</th>
                         <th>Cantidad de plazas</th>
                         <th>Descripcion Adicional</th>
-                        <th></th>
+                        <th>Verificado por</th>
                     </thead>
                     <tbody>
                         @foreach($reservas as $reserva)
@@ -43,13 +42,12 @@
                             </td>
                             <td>{{date('d-m-Y', strtotime($reserva->fecha))}}</td>
                             <td>{{date('H:m', strtotime($reserva->hora))}}</td>
-                            <td>{{$reserva->nombre}}</td>
-                            <td>{{$reserva->apellido}}</td>
+                            <td>{{$reserva->nombre}} {{$reserva->apellido}}</td>
                             <td>{{$reserva->rutCliente}}</td>
                             <td>{{$reserva->fono}}</td>
                             <td>{{$reserva->cant_personas}}</td>
                             <td>{{$reserva->descripcion}}</td>
-                            <td> 
+                            <td> @if ($reserva->estado == 'E')
                                 <div class="d-flex">
                                     <button type="button" style="font-size: small" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AprobarModal{{$reserva->cod_reserva}}" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -66,6 +64,8 @@
                                         Rechazar
                                     </button>
                                 </div> 
+                                @else{{$reserva->empleado->nombre}} {{$reserva->empleado->apellido}}
+                                @endif
                             </td>
                         </tr>
 

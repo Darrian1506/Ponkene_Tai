@@ -15,4 +15,8 @@ class Reserva extends Model
     protected $table = "reserva";
     protected $primaryKey = "cod_reserva";
     public $incrementing = true;
+
+    public function empleado(){
+        return $this->belongsTo('App\Models\Empleado', 'rut');
+    }
 }
