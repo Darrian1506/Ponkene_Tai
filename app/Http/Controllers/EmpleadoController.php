@@ -10,6 +10,8 @@ use App\Http\Requests\StoreEmpleadoRequest;
 use App\Http\Requests\LoginEmpleadoRequest;
 use App\Http\Requests\EditEmpleadoRequest;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
+
 
 
 class EmpleadoController extends Controller
@@ -63,6 +65,7 @@ class EmpleadoController extends Controller
         $empleado->nombre = $request->nombre;
         $empleado->apellido = $request->apellido;
         $empleado->password = Hash::make($request->password);
+        $empleado->api_token = str_random(55);
         $empleado->fono = $request->fono;
         $empleado->direccion = $request->direccion;
         $empleado->email = $request->email;
