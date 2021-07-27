@@ -22,7 +22,7 @@
                                 @method('PUT')
                                 <div class="form-group">
                                     <label for="cod_plato">Código plato</label>
-                                    <input type="number" name="cod_plato" id="cod_plato" value="{{old('nombre',$plato->cod_plato)}}" class="form-control" disabled>
+                                    <input type="number" name="cod_plato" id="cod_plato" value="{{$plato->cod_plato}}" class="form-control" disabled>
                                 </div>
                                 <div class="form-group mt-2">
                                     <label for="nombre">Nombre</label>

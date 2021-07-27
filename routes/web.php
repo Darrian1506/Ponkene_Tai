@@ -42,3 +42,11 @@ Route::post('/platos','App\Http\Controllers\PlatoController@store')->name('plato
 Route::delete('/platos/{plato}','App\Http\Controllers\PlatoController@destroy')->name('plato.destroy');
 Route::get('/platos/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
 Route::put('/platos/{plato}','App\Http\Controllers\PlatoController@update')->name('plato.update');
+
+/*¨PROMOCIONES*/
+Route::get('/promociones','App\Http\Controllers\PromocionController@index')->name('promocion.index');
+Route::get('/promociones/agregar-promocion','App\Http\Controllers\PromocionController@create')->name('promocion.create');
+Route::post('/promociones','App\Http\Controllers\PromocionController@store')->name('promocion.store');
+Route::delete('/promociones/{promocion}','App\Http\Controllers\PromocionController@destroy')->name('promocion.destroy');
+Route::get('/promociones/{promocion}/edit','App\Http\Controllers\PromocionController@edit')->name('promocion.edit');
+Route::put('/promociones/{promocion}','App\Http\Controllers\PromocionController@update')->name('promocion.update');

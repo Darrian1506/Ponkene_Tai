@@ -16,9 +16,13 @@ class Plato extends Authenticable
     protected $table = "plato";
     protected $primaryKey =  "cod_plato";
     public $incrementing = true;
-    public $timestamps = false;
+    
 
     public function insumo(){
         return $this->belongsToMany('App\Models\Insumo','insumo_plato','cod_plato','cod_insu');
+    }
+
+    public function promocion(){
+        return $this->belongsToMany('App\Models\Promocion');
     }
 }
