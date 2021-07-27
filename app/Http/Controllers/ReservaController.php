@@ -43,8 +43,7 @@ class ReservaController extends Controller
     public function store(StoreReservaRequest $request)
     {
         $reserva = new Reserva();
-        $reserva->fecha = $request->fecha;
-        $reserva->hora = $request->hora;
+        $reserva->fechaHora = $request->fecha.' '.$request->hora;
         $reserva->rutCliente = $request->rutCliente;
         $reserva->nombre = $request->nombre;
         $reserva->apellido = $request->apellido;
@@ -88,8 +87,7 @@ class ReservaController extends Controller
     public function update(Request $request, Reserva $reserva, String $estado)
     {
         $datos = Reserva::find($reserva);
-        $reserva->fecha = $datos[0]->fecha;
-        $reserva->hora = $datos[0]->hora;
+        $reserva->fechaHora = $datos[0]->fechaHora;
         $reserva->rut = Auth::user()->rut;
         $reserva->rutCliente = $datos[0]->rutCliente;
         $reserva->nombre = $datos[0]->nombre;
@@ -114,6 +112,6 @@ class ReservaController extends Controller
     }
 
     public function indexApi(){
-        return Reserva::all();
+        return Reserva::orderBy('fechaHora')->get();
     }
 }

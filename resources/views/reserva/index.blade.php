@@ -40,8 +40,8 @@
                                     Rechazada
                                 @endif
                             </td>
-                            <td>{{date('d-m-Y', strtotime($reserva->fecha))}}</td>
-                            <td>{{date('H:m', strtotime($reserva->hora))}}</td>
+                            <td>{{date('d-m-Y', strtotime($reserva->fechaHora))}}</td>
+                            <td>{{date('H:i', strtotime($reserva->fechaHora))}}</td>
                             <td>{{$reserva->nombre}} {{$reserva->apellido}}</td>
                             <td>{{$reserva->rutCliente}}</td>
                             <td>{{$reserva->fono}}</td>

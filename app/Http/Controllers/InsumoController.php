@@ -21,7 +21,6 @@ class InsumoController extends Controller
     public function index()
     {
         $insumos = Insumo::orderBy('categoria')->get();
-        //return Insumo::all();
         return view('insumo.index', compact('insumos'));
     }
 
