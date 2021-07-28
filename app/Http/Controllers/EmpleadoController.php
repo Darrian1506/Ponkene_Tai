@@ -65,7 +65,7 @@ class EmpleadoController extends Controller
         $empleado->nombre = $request->nombre;
         $empleado->apellido = $request->apellido;
         $empleado->password = Hash::make($request->password);
-        $empleado->api_token = str_random(55);
+        $empleado->api_token = Str::random(60);
         $empleado->fono = $request->fono;
         $empleado->direccion = $request->direccion;
         $empleado->email = $request->email;
