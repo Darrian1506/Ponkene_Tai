@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group mt-2">
                     <label for="rut">Rut</label>
-                    <input type="text" name="rut" id="rut" required oninput="checkRut(this)" class="form-control @error('rut') is-invalid @enderror" value="{{old('rut')}}">
+                    <input type="text" name="rut" id="rut" required oninput="formatoVerificaRut(this)" class="form-control @error('rut') is-invalid @enderror" value="{{old('rut')}}">
                 </div>
                 <div class="form-group mt-2">
                     <label for="fono">Fono</label>
@@ -69,7 +69,7 @@
     </div>
     
     <script>
-        function checkRut(rut) {
+        function formatoVerificaRut(rut) {
             // Despejar Puntos
             var valor = rut.value.replace('.','');
             // Despejar Guión
@@ -114,5 +114,5 @@
             // Si todo sale bien, eliminar errores (decretar que es válido)
             rut.setCustomValidity('');
         }
-        </script>
+    </script>
 @endsection
