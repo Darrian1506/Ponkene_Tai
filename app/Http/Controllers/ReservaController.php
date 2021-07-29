@@ -114,4 +114,8 @@ class ReservaController extends Controller
     public function indexApi(){
         return Reserva::orderBy('fechaHora')->get();
     }
+
+    public function pruebaApi(){
+        return 'PASE';
+    }
 }
