@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
 class Plato extends Authenticable
 {
     use SoftDeletes;
@@ -23,6 +22,6 @@ class Plato extends Authenticable
     }
 
     public function promocion(){
-        return $this->belongsToMany('App\Models\Promocion');
+        return $this->belongsToMany('App\Models\Promocion','plato_promocion');
     }
 }

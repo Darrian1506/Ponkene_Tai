@@ -2,4 +2,4 @@
 
 @section('main')
     <div class="row"></div>
-@endsection
+@endsection 

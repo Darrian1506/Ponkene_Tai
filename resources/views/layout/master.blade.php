@@ -15,7 +15,7 @@
         </a>
         <a class="nav-item nav-link  border rounded-top  align-items-start"  style="color: white;font-size: 1.5rem"href="">Nosotros</a>
         <a class="nav-item nav-link  border rounded-top  align-items-start"  style="color: white;font-size: 1.5rem"href="">Carta</a>
-        <a class="nav-item nav-link  border rounded-top  align-items-start"  style="color: white;font-size: 1.5rem"href="">Reserva</a>
+        <a class="nav-item nav-link  border rounded-top  align-items-start"  style="color: white;font-size: 1.5rem"href="{{route('reserva.create')}}">Reserva</a>
         <a class="nav-item nav-link  border rounded-top  align-items-start" style="color: white;font-size: 1.5rem" href="{{route('empleado.login-form')}}">Empleados</a>
         
         

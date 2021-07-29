@@ -2,23 +2,23 @@
 
 namespace App\Models;
 
+
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Promocion extends Authenticable
+class Reserva extends Model
 {
     use HasFactory;
-    use SoftDeletes;
-    protected $table = 'promocion';
-    protected $primaryKey = 'cod_promo';
+    use Notifiable;
+    protected $table = "reserva";
+    protected $primaryKey = "cod_reserva";
     public $incrementing = true;
-    
-    
-    public function plato(){
-        return $this->belongsToMany('App\Models\Plato','plato_promocion','cod_promo','cod_plato')->withPivot(['cantidad']);
+
+    public function empleado(){
+        return $this->belongsTo('App\Models\Empleado', 'rut');
     }
-    
 }

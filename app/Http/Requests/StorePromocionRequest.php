@@ -10,7 +10,7 @@ class StorePromocionRequest extends FormRequest
 
     public function __construct()
     {
-        $validationFactory->extend();
+        
     }
     /**
      * Determine if the user is authorized to make this request.

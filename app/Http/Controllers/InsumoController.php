@@ -24,6 +24,11 @@ class InsumoController extends Controller
         return view('insumo.index', compact('insumos'));
     }
 
+    public function indexApi()
+    {
+        return Insumo::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

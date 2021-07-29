@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Plato;
 use App\Models\Promocion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use App\Http\Requests\StorePromocionRequest;
 
@@ -48,11 +49,11 @@ class PromocionController extends Controller
     public function store(StorePromocionRequest $request)
     {
         $promocion = new Promocion();
-        $platos = Plato::orderBy('created_at')->get();
+        $platos = Plato::orderBy('nombre')->get();
         $promocion->nombre = $request->nombre;
         $promocion->precio = $request->precio;
         $flag = false;
-        for ($i=0; $i <count($request->cantidad) ; $i++) { 
+        for ($i=0; $i <count($request->cantidad) ; $i++){ 
             if(isset(($request->cantidad)[$i]) or (($request->cantidad)[$i])!=0){
                 $flag = true;
             }
@@ -75,6 +76,7 @@ class PromocionController extends Controller
             return redirect()->back();
         }
         $promocion->save();
+        
         for ($i=0; $i <count($request->cantidad) ; $i++) { 
             if(isset(($request->cantidad)[$i]) and (($request->cantidad)[$i])!=0){
                 $promocion->plato()->attach([
@@ -118,7 +120,25 @@ class PromocionController extends Controller
      */
     public function update(Request $request, Promocion $promocion)
     {
-        //
+        $promocion->nombre = $request->nombre;
+        $promocion->precio = $request->precio;
+        $promocion->inicio_promo = $request->fecha_ini.' '.$request->hora_ini;
+        $promocion->termi_promo = $request->fecha_ter.' '.$request->hora_ter;
+        $promocion->save();
+
+        for ($i=0; $i <count($promocion->plato) ; $i++) { 
+            $promocion->plato()->detach(($promocion->plato)[$i]);
+        }
+        $platos = Plato::orderBy('nombre')->get();
+        for ($i=0; $i <count($request->cantidad) ; $i++) { 
+            if(isset(($request->cantidad)[$i]) and (($request->cantidad)[$i])!=0){
+                $promocion->plato()->attach([
+                    (($platos[$i])->cod_plato) => ['cantidad' => (($request->cantidad)[$i])]
+                ]);
+            }
+        }
+
+        return redirect()->route('promocion.index');
     }
 
     /**
