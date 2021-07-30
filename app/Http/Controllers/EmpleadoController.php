@@ -107,12 +107,13 @@ class EmpleadoController extends Controller
     {
         $empleado->nombre = $request->nombre;
         $empleado->apellido = $request->apellido;
-        $empleado->password = Hash::make($request->password);
         $empleado->fono = $request->fono;
         $empleado->direccion = $request->direccion;
         $empleado->email = $request->email;
         $empleado->tipo_empleado = $request->tipo_empleado;
-
+        if (isset($request->password)) {
+            $empleado->password = Hash::make($request->password);
+        }
         $empleado->save();
 
         return redirect()->route('empleado.index');

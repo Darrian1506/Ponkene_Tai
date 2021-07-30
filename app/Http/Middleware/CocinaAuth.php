@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAuth
+class CocinaAuth
 {
     /**
      * Handle an incoming request.
@@ -20,12 +20,10 @@ class AdminAuth
         if (auth()->check()){
 
             switch (auth::user()->tipo_empleado) {
-                case 'A':
+                case 'C':
                     return $next($request);
                     break;
-                case 'C':
-                    return redirect()->route('comanda.index');
-                    break;
+                
                 default:
                     return $next($request);
                     break;
@@ -33,6 +31,5 @@ class AdminAuth
             
             
         }
-        
     }
 }
