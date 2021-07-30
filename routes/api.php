@@ -26,6 +26,8 @@ Route::post('/loginapi', [EmpleadoController::class, 'loginApi']);
 
 Route::get('/reserva/index', [ReservaController::class, 'indexApi']);
 
+Route::get('/insumo/{categoria}/index', [InsumoController::class, 'indexApi']);
+
 Route::group(['middlware' => 'auth:api'], function(){
     Route::get('/reserva/pruebaApi', [ReservaController::class, 'pruebaApi']);
 });
