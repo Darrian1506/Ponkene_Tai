@@ -104,6 +104,6 @@ class InsumoController extends Controller
     }
 
     public function indexApi(String $categoria){
-        return Insumo::where('categoria', $categoria)->get();
+        return Insumo::where('categoria', $categoria)->orderBy('nombre')->get();
     }
 }

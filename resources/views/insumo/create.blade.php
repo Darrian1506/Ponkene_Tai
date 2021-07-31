@@ -28,14 +28,15 @@
                     <div class="form-group mt-2 ">
                         <label for="categoria">Categoría</label>
                         <select name="categoria" id="categoria" name="categoria" class="form-select form-control @error('categoria') is-invalid @enderror" value="{{old('categoria')}}">
-                            <option value="G">Guarnición</option>
+                            <option value="A">Aderezo</option>
                             <option value="B">Bebida</option>
-                            <option value="E">Ensalada</option>
                             <option value="C">Carne</option>
-                            <option value="F">Pescado</option>
+                            <option value="E">Ensalada</option>
+                            <option value="G">Guarnición</option>                            
                             <option value="M">Marisco</option>
+                            <option value="F">Pescado</option>
                             <option value="P">Pollo</option>
-                            <option value="S">Postre</option>
+                            <option value="S">Postre</option>                            
                         </select>  
                     </div>
                     <div class="form-group mt-2 col-4">
