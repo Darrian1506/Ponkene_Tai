@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\InsumoController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\PromocionController;
+use App\Http\Controllers\PlatoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +30,10 @@ Route::post('/loginapi', [EmpleadoController::class, 'loginApi']);
 Route::get('/reserva/index', [ReservaController::class, 'indexApi']);
 
 Route::get('/insumo/{categoria}/index', [InsumoController::class, 'indexApi']);
+
+Route::get('/promocion/index', [PromocionController::class, 'indexApi']);
+
+Route::get('/plato/index', [PlatoController::class, 'indexApi']);
 
 Route::group(['middlware' => 'auth:api'], function(){
     Route::get('/reserva/pruebaApi', [ReservaController::class, 'pruebaApi']);

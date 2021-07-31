@@ -12,7 +12,7 @@ class PlatoController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('auth')->except(['login']);
+        $this->middleware('auth')->except(['login','indexApi']);
         $this->middleware('auth.admin',['only'=>['index']]);
     }
     /**
@@ -112,5 +112,10 @@ class PlatoController extends Controller
     {
         $plato->delete();
         return redirect()->route('plato.index');
+    }
+
+    public function indexApi()
+    {
+        return Plato::orderBy('nombre')->get();
     }
 }

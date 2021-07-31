@@ -12,7 +12,7 @@ use App\Http\Requests\StorePromocionRequest;
 class PromocionController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth')->except(['login']);
+        $this->middleware('auth')->except(['login', 'indexApi']);
         $this->middleware('auth.admin',['only'=>['index']]);
     }
     /**
@@ -21,11 +21,8 @@ class PromocionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
-        $promociones = Promocion::orderBy('created_at')->get();
-        
-
+    {        
+        $promociones = Promocion::orderBy('created_at')->get();    
         return view('promocion.index',compact('promociones'));
     }
 
@@ -150,5 +147,10 @@ class PromocionController extends Controller
     public function destroy(Promocion $promocion)
     {
         //
+    }
+
+    public function indexApi()
+    {
+        return Promocion::orderBy('inicio_promo')->get();
     }
 }
