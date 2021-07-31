@@ -59,3 +59,9 @@ Route::get('/reserva/crear-reserva','ReservaController@create')->name('reserva.c
 Route::post('/reserva','ReservaController@store')->name('reserva.store');
 //Route::get('/reserva/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
 Route::put('/reserva/{reserva}/{estado}','ReservaController@update')->name('reserva.update');
+
+
+
+/*COMANDA*/
+
+Route::get('/comandas/cocina','ComandaController@index')->name('comanda.index');
