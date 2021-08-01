@@ -51,8 +51,10 @@
                                 @case('S')
                                     Postre
                                     @break
+                                @case('A')
+                                    Aderezo
+                                    @break
                                 @default
-                                    
                                 @endswitch
 
                             <td>{{$insumo->precio}}</td>

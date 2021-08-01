@@ -31,12 +31,13 @@
                         <div class="form-group mt-2">
                             <label for="categoria">Categoría</label>
                             <select name="categoria" id="categoria" class="form-control @error('categoria') is-invalid @enderror" value={{old('categoria')}} >
-                                <option value="G" @if (old('categoria',$insumo->categoria)=='G') selected @endif>Guarnición</option>
+                                <option value="A" @if (old('categoria',$insumo->categoria)=='A') selected @endif >Aderezo</option>
                                 <option value="B" @if (old('categoria',$insumo->categoria)=='B') selected @endif >Bebida</option>
-                                <option value="E" @if (old('categoria',$insumo->categoria)=='E') selected @endif>Ensalada</option>
                                 <option value="C" @if (old('categoria',$insumo->categoria)=='C') selected @endif>Carne</option>
-                                <option value="F" @if (old('categoria',$insumo->categoria)=='F') selected @endif>Pescado</option>
+                                <option value="E" @if (old('categoria',$insumo->categoria)=='E') selected @endif>Ensalada</option>
+                                <option value="G" @if (old('categoria',$insumo->categoria)=='G') selected @endif>Guarnición</option>                                
                                 <option value="M" @if (old('categoria',$insumo->categoria)=='M') selected @endif>Marisco</option>
+                                <option value="F" @if (old('categoria',$insumo->categoria)=='F') selected @endif>Pescado</option>
                                 <option value="P" @if (old('categoria',$insumo->categoria)=='P') selected @endif>Pollo</option>
                                 <option value="S" @if (old('categoria',$insumo->categoria)=='S') selected @endif>Postre</option>
                             </select>
@@ -47,7 +48,7 @@
                         </div>
                         <div class="form-group mt-4">
                             <a href="{{ route('insumo.index') }}" class="btn btn-warning">Cancelar</a>
-                            <button type="submit" class="btn btn-primary" >Editar</button>
+                            <button type="submit" class="btn btn-primary" >Guradar Cambios</button>
                         </div>
                     </form>
                 </div>
