@@ -49,8 +49,7 @@ class PlatoController extends Controller
         $plato->nombre = $request->nombre;
         $plato->precio = $request->precio;
         $plato->save();
-
-
+        
         for ($i=0; $i < count($request->insumo); $i++) { 
             $plato->insumo()->attach(($request->insumo)[$i]);
         }

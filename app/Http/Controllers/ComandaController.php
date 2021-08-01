@@ -10,7 +10,7 @@ class ComandaController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('auth')->except(['login']);
+        $this->middleware('auth')->except(['login', 'storeApi']);
         $this->middleware('auth.cocina',['only'=>['index']]);
     }
     /**
@@ -87,5 +87,19 @@ class ComandaController extends Controller
     public function destroy(Comanda $comanda)
     {
         //
+    }
+    public function storeApi(Request $request){
+        $comanda = new Comanda();
+        $comanda->fecha = $request->fecha;
+        $comanda->estado = 'C';
+        $comanda->mesa = (int)$request->mesa;
+        $comanda->rut = $request->rut;
+        $comanda->save();
+
+        return $request->insumo;
+/*
+        for ($i=0; $i < count($request->insumo); $i++) { 
+            $comanda->insumos()->attach(($request->insumo)[$i]);
+        }*/
     }
 }

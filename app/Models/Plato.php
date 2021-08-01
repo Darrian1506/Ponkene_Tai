@@ -24,4 +24,8 @@ class Plato extends Authenticable
     public function promocion(){
         return $this->belongsToMany('App\Models\Promocion','plato_promocion');
     }
+    
+    public function comandas(){
+        return $this->belongsToMany('App\Models\Comanda','cod_comanda');
+    }
 }

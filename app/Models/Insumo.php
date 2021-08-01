@@ -27,5 +27,8 @@ class Insumo extends Authenticable
         return $this->belongsToMany('App\Models\Plato','insumo_plato');
     }
 
+    public function comandas(){
+        return $this->belongsToMany('App\Models\Comanda','cod_comanda');
+    }
     
 }
