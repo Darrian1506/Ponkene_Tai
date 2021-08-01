@@ -21,22 +21,22 @@
             </button>
             <div class="collapse navbar-collapse   d-flex justify-content-between order-2" id="navbarSupportedContent">
                 <ul class="navbar-nav  nav-justify  mb-2 mb-lg-0">
-                    <li class="nav item">
+                    <li class="nav item mx-2">
                         <a href="{{route('empleado.index')}}" class="nav-link border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Empleados
                         </a>
                     </li>
-                    <li class="nav item">
+                    <li class="nav item mx-2">
                         <a href="{{route('reserva.index')}}" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Reservas
                         </a>
                     </li>
-                    <li class="nav item">
+                    <li class="nav item  mx-2">
                         <a href="#" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Caja
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown  mx-2">
                         <a class="nav-link dropdown-toggle border rounded-top align-items-start" href="#"  id="navbarDropdown" style="color: white;font-size: 1rem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Carta
                         </a>
@@ -46,17 +46,26 @@
                             <a class="dropdown-item" href="{{route('promocion.index')}}">Promociones</a>
                         </ul>
                     </li>
-                    <li class="nav item">
-                        <a href="#" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
+                    <li class="nav item mx-2">
+                        <a href="{{route('mesa.index')}}" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Mesas    
                         </a>
                     </li>
-                    <li class="nav item">
+                    <li class="nav item  mx-2">
                         <a href="#" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Informes    
                         </a>
                     </li>
-
+                    <li class="nav-item dropdown  mx-2">
+                        <a class="nav-link dropdown-toggle border rounded-top align-items-start" href="#"  id="navbarDropdown" style="color: white;font-size: 1rem" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Comandas
+                        </a>
+                        <ul class=" dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{route('cocina.index')}}">Cocina</a>
+                            <a class="dropdown-item" href="{{--route('barra.index')--}}">Barra</a>
+                            <a class="dropdown-item" href="{{--route('Caja.index')--}}">Caja</a>
+                        </ul>
+                    </li>
                 </ul>
                 
             </div>

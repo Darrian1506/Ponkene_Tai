@@ -24,7 +24,7 @@ class StoreInsumoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|unique',
+            'nombre' => 'required|unique:insumo',
             'categoria' =>'required',
             'precio' => 'required|numeric'
         ];

@@ -11,7 +11,7 @@
                     <div class="alert alert-danger">
                         <p>Se han producido los siguientes errores:</p>
                         <ul>
-                            @foreach ($errors as $error)
+                            @foreach ($errors->all() as $error)
                                 <li style="font-size: x-small">{{$error}}</li>
                             @endforeach
                         </ul>
