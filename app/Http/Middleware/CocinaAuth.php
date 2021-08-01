@@ -23,9 +23,11 @@ class CocinaAuth
                 case 'C':
                     return $next($request);
                     break;
-                
-                default:
+                case 'A':
                     return $next($request);
+                    break;
+                default:
+                    return redirect()->back();
                     break;
             }
             

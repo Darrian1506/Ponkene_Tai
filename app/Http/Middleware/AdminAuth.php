@@ -24,7 +24,7 @@ class AdminAuth
                     return $next($request);
                     break;
                 case 'C':
-                    return redirect()->route('comanda.index');
+                    return redirect()->route('cocina.index');
                     break;
                 default:
                     return $next($request);

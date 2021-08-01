@@ -61,7 +61,16 @@ Route::post('/reserva','ReservaController@store')->name('reserva.store');
 Route::put('/reserva/{reserva}/{estado}','ReservaController@update')->name('reserva.update');
 
 
+/*MESA*/
+
+Route::get('/mesas/index','MesaController@index')->name('mesa.index');
+Route::get('/mesas/agregar_mesa','MesaController@create')->name('mesa.create');
+Route::post('/mesas','MesaController@store')->name('mesa.store');
+Route::get('/mesas/{mesa}/edit','MesaController@edit')->name('mesa.edit');
+Route::put('/mesas/{mesa}','MesaController@update')->name('mesa.update');
+Route::delete('/mesas/{mesa}','MesaController@destroy')->name('mesa.destroy');
+
 
 /*COMANDA*/
 
-Route::get('/comandas/cocina','ComandaController@index')->name('comanda.index');
+Route::get('/comandas/cocina','CocinaController@index')->name('cocina.index');

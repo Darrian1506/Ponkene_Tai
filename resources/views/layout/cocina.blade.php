@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse   d-flex justify-content-between order-2" id="navbarSupportedContent">
                 <ul class="navbar-nav  nav-justify  mb-2 mb-lg-0">
                     <li class="nav item">
-                        <a href="{{route('comanda.index')}}" class="nav-link border rounded-top align-items-start " style="color: white;font-size: 1rem">
+                        <a href="{{route('cocina.index')}}" class="nav-link border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Comandas
                         </a>
                     </li>
