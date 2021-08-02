@@ -10,14 +10,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cocina extends Authenticable
 {
-    use SoftDeletes;
     use Notifiable;
-    protected $table = "comanda";
-    protected $primaryKey =  "cod_comanda";
-    public $incrementing = true;
-
-    public function mesa(){
-        return $this->belongsTo('App\Models\Mesa');
-    }
 
 }

@@ -15,14 +15,14 @@ class Comanda extends Model
     public $incrementing = true;
 
     public function insumos(){
-        return $this->belongsToMany('App\Models\Insumo', 'comanda_insumo','cod_insu','cod_comanda');
+        return $this->belongsToMany('App\Models\Insumo', 'comanda_insumo', 'cod_comanda', 'cod_insu')->withPivot(['cantidad']);
     }
 
     public function promociones(){
-        return $this->belongsToMany('App\Models\Promocion', 'cod_promo');
+        return $this->belongsToMany('App\Models\Promocion', 'comanda_promocion','cod_comanda','cod_promo')->withPivot(['cantidad']);
     }
 
     public function platos(){
-        return $this->belongsToMany('App\Models\Plato', 'cod_plato');
+        return $this->belongsToMany('App\Models\Plato', 'comanda_plato','cod_comanda','cod_plato')->withPivot(['cantidad']);
     }
 }

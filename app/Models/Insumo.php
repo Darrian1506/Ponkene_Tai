@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 }
 }*/
 
-class Insumo extends Authenticable
+class Insumo extends Model
 {
     use Notifiable;
     use SoftDeletes; 
@@ -28,7 +28,7 @@ class Insumo extends Authenticable
     }
 
     public function comandas(){
-        return $this->belongsToMany('App\Models\Comanda','cod_comanda');
+        return $this->belongsToMany('App\Models\Comanda','comanda_insumo', 'cod_insu','cod_comanda')->withPivot(['cantidad']);
     }
     
 }

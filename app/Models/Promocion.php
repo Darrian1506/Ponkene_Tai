@@ -21,7 +21,7 @@ class Promocion extends Authenticable
         return $this->belongsToMany('App\Models\Plato','plato_promocion','cod_promo','cod_plato')->withPivot(['cantidad']);
     }
     public function comandas(){
-        return $this->belongsToMany('App\Models\Comanda','cod_comanda');
+        return $this->belongsToMany('App\Models\Comanda','comanda_promocion','cod_promo','cod_comanda')->withPivot(['cantidad']);
     }
     
 }
