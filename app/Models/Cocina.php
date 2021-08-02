@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cocina extends Authenticable
 {
-    use SoftDeletes;
     use Notifiable;
+<<<<<<< HEAD
     protected $table = "comanda";
     protected $primaryKey =  "cod_comanda";
     public $incrementing = true;
@@ -25,5 +25,7 @@ class Cocina extends Authenticable
     public function promocion(){
         return $this->belongsToMany('App\Models\Promocion','comanda_promocion','cod_comanda','cod_promo')->withPivot(['cantidad']);
     }
+=======
+>>>>>>> d77ec467ef07e5f09e15644aa4aa9784cef66414
 
 }

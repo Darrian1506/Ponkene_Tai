@@ -7,6 +7,7 @@ use App\Http\Controllers\InsumoController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\PlatoController;
+use App\Http\Controllers\ComandaController;
 
 
 /*
@@ -33,7 +34,11 @@ Route::get('/insumo/{categoria}/index', [InsumoController::class, 'indexApi']);
 
 Route::get('/promocion/index', [PromocionController::class, 'indexApi']);
 
+Route::get('/platos/{plato}',[PlatoController::class, 'editApi']);
+
 Route::get('/plato/index', [PlatoController::class, 'indexApi']);
+
+Route::post('/comanda',[ComandaController::class, 'storeApi']);
 
 Route::group(['middlware' => 'auth:api'], function(){
     Route::get('/reserva/pruebaApi', [ReservaController::class, 'pruebaApi']);

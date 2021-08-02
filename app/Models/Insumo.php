@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 }
 }*/
 
-class Insumo extends Authenticable
+class Insumo extends Model
 {
     use Notifiable;
     use SoftDeletes; 
@@ -24,8 +24,11 @@ class Insumo extends Authenticable
     public $incrementing = true;
 
     public function plato(){
-        return $this->belongsToMany('App\Models\Plato','insumo_plato');
+        return $this->belongsToMany('App\Models\Plato','insumo_plato', 'cod_insu','cod_plato');
     }
 
+    public function comandas(){
+        return $this->belongsToMany('App\Models\Comanda','comanda_insumo', 'cod_insu','cod_comanda')->withPivot(['cantidad']);
+    }
     
 }
