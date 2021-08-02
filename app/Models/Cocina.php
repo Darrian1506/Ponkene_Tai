@@ -19,5 +19,11 @@ class Cocina extends Authenticable
     public function mesa(){
         return $this->belongsTo('App\Models\Mesa');
     }
+    public function plato(){
+        return $this->belongsToMany('App\Models\Plato','comanda_plato','cod_comanda','cod_plato')->withPivot(['cantidad']);
+    }
+    public function promocion(){
+        return $this->belongsToMany('App\Models\Promocion','comanda_promocion','cod_comanda','cod_promo')->withPivot(['cantidad']);
+    }
 
 }

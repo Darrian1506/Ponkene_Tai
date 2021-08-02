@@ -6,7 +6,7 @@
         <a href="{{route('mesa.create')}}" class="btn btn-success order-2">Agregar mesa</a>
         
     </div>
-    <hr>
+
     <div class="row d-flex">
         @foreach ($mesas as $mesa)
             <div class="col">

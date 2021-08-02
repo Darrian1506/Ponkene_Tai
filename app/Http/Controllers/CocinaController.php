@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cocina;
+use App\Models\Plato;
+use App\Models\Promocion;
 use Illuminate\Http\Request;
 
 class CocinaController extends Controller
@@ -19,16 +21,20 @@ class CocinaController extends Controller
      */
     public function index(Request $request)
     {   
-
+        
         $query = trim($request->get(key:'search'));
         if ($query != "") {
             $comandas = Cocina::where('estado','LIKE',$query)
                     ->orderBy('created_at','desc')->get();
-            return view('cocina.index',compact('comandas'));    
+            $platos = Plato::orderBy('precio')->get();
+            $promociones = Promocion::orderBy('precio')->get();
+            return view('cocina.index',compact('comandas','platos','promociones'));    
         }
         else {
+            $platos = Plato::orderBy('precio')->get();
             $comandas = Cocina::orderBy('created_at','desc')->get();
-            return view('cocina.index',compact('comandas'));
+            $promociones = Promocion::orderBy('precio')->get();
+            return view('cocina.index',compact('comandas','platos','promociones'));
         }
         
     }
