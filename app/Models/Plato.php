@@ -24,14 +24,12 @@ class Plato extends Authenticable
     public function promocion(){
         return $this->belongsToMany('App\Models\Promocion','plato_promocion');
     }
-<<<<<<< HEAD
 
     public function cocina(){
         return $this->belongsToMany('App\Models\Cocina','comanda_plato');
-=======
+    }
     
     public function comandas(){
         return $this->belongsToMany('App\Models\Comanda','comanda_plato','cod_plato','cod_comanda')->withPivot(['cantidad']);
->>>>>>> d77ec467ef07e5f09e15644aa4aa9784cef66414
     }
 }
