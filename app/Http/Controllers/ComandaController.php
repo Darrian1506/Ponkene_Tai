@@ -121,6 +121,16 @@ class ComandaController extends Controller
                     $comanda->platos()->attach([($platoCant[0]) => ['cantidad' => ($platoCant[1])]]);
                 }
             }
-        }  
+        }
+        if($request->comentarios != ''){
+            $lista = explode('-', $request->comentarios);
+            $hola = explode('::',$lista[0]);
+            for ($i=0; $i < count($lista) ; $i++) {
+                if($lista[$i] != ''){
+                    $platoComen= explode('::', $lista[$i]);
+                    $comanda->platos()->attach([($platoComen[0]) => ['descripcion' => ($platoComen[1])]]);
+                }
+            }
+        }
     }
 }
