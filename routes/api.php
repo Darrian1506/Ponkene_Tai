@@ -34,6 +34,7 @@ Route::get('/insumo/{categoria}/index', [InsumoController::class, 'indexApi']);
 
 Route::get('/promocion/index', [PromocionController::class, 'indexApi']);
 
+Route::get('/platos/{plato}',[PlatoController::class, 'editApi']);
 
 Route::get('/plato/index', [PlatoController::class, 'indexApi']);
 

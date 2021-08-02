@@ -24,7 +24,7 @@ class Insumo extends Model
     public $incrementing = true;
 
     public function plato(){
-        return $this->belongsToMany('App\Models\Plato','insumo_plato');
+        return $this->belongsToMany('App\Models\Plato','insumo_plato', 'cod_insu','cod_plato');
     }
 
     public function comandas(){
