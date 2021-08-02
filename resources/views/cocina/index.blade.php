@@ -20,6 +20,75 @@
         </form>        
     </div>
     <hr>
+    @foreach ($comandas as $comanda)
+    <div class="card border-dark mb-3 text-center">
+        <div class="card-header">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="bg-dark text-white text-center">
+                        <th>Mesa:  {{$comanda->mesa}}</th>
+                        <th>Cod Comanda:  {{$comanda->cod_comanda}}</th>
+                        <th>Fecha-Hora: {{$comanda->fecha}}</th>
+                        <th>Mesero:  {{$comanda->rut}}</th>
+                        <th>Estado:  
+                            @switch($comanda->estado)
+                                @case('C')
+                                    Creada
+                                    @break
+                                @case('P')
+                                    En Preparación
+                                    @break
+                                @case('L')
+                                    Listo
+                                    @break 
+                            @endswitch
+                        </th>
+                        <th></th>
+                    </thead>
+                </table> 
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    @foreach ($comanda->plato as $plato_comanda)                        
+                        @foreach ($platos as $plato)
+                            @if ($plato->cod_plato == $plato_comanda->cod_plato )
+                                <div class="card text-white bg-primary mb-2" style="height:150px; width: 150px">
+                                    <div class="card-header">Cantidad : {{$plato_comanda->pivot->cantidad}}</div>
+                                    <div class="card-body">
+                                        <div class="col">
+                                            {{$plato->nombre}} 
+                                            {{--Cod Comanda:{{$comanda->cod_comanda}}
+                                            {{$comanda->mesa}}--}}
+                                        </div>
+                                    </div>                                        
+                                </div> 
+                            @endif
+                        @endforeach                                                
+                    @endforeach
+
+                    @foreach ($comanda->promocion as $promocion_comanda)                      
+                        @foreach ($promociones as $promocion)
+                            @if ($promocion->cod_promocion == $promocion_comanda->cod_promocion)
+                                <div class="card text-white bg-secondary mb-2" style="height:150px; width: 150px">
+                                    <div class="card-header">Cantidad : {{$promocion_comanda->pivot->cantidad}}</div>
+                                    <div class="card-body">
+                                        <div class="col">
+                                            {{$promocion->nombre}}
+                                            {{--Cod Comanda:{{$comanda->cod_comanda}}
+                                            {{$comanda->mesa}}--}}
+                                        </div>
+                                    </div>                                        
+                                </div> 
+                            @endif
+                        @endforeach                                                
+                    @endforeach
+                </div>
+            </div>       
+        </div>                       
+    @endforeach        
+    
+    {{--
         @foreach ($comandas as $comanda)
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
@@ -86,5 +155,7 @@
                 </tbody>
             </table>                
         </div>
-        @endforeach    
+        <hr>
+        @endforeach  --}}
+
 @endsection
