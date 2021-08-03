@@ -23,6 +23,6 @@ class Comanda extends Model
     }
 
     public function platos(){
-        return $this->belongsToMany('App\Models\Plato', 'comanda_plato','cod_comanda','cod_plato')->withPivot(['cantidad']);
+        return $this->belongsToMany('App\Models\Plato', 'comanda_plato','cod_comanda','cod_plato')->withPivot(['cantidad', 'descripcion']);
     }
 }
