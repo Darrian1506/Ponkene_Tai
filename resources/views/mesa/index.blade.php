@@ -10,13 +10,23 @@
     <div class="row d-flex">
         @foreach ($mesas as $mesa)
             <div class="col">
-                <div class="card m-3" style="height: 220px; width: 150px">
+                <div class="card m-3" style="height: 220px; width: 170px">
                 
                     <div class="card-header">
                         Mesa N° {{$mesa->cod_mesa}}
                     </div>
                     <div class="card-body">
-                        Ubicación : {{$mesa->ubicacion}}
+                        @switch($mesa->ubicacion)
+                            @case('T')
+                                Ubicación : Terraza
+                                @break
+                            @case('S')
+                                Ubicación : Salón
+                                @break
+                            @case('P')
+                                Ubicación : Playa
+                                @break 
+                        @endswitch
                         <hr>
                         Capacidad : {{$mesa->capacidad}}
                     </div>
