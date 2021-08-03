@@ -31,7 +31,7 @@
     <body>
     
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div id="myCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -126,7 +126,7 @@
     <div class="row featurette">
       <div class="col-md-7">
         <h2 class="featurette-heading">Ven y prueba nuestro  <span class="text-muted">Atún Encostrado</span></h2>
-        <p class="lead">Exquisito medallón de atún encostrado con sésamo en salsa teriyaki, acompañado de una guarnición de arroz y camote frito, adornado con dos deliciosos camaraones</p>
+        <p class="lead">Exquisito medallón de atún encostrado con sésamo en salsa teriyaki, acompañado de una guarnición de arroz y camote frito, adornado con dos deliciosos camarones</p>
       </div>
       <div class="col-md-5">
         <img class="featurette-image img-responsive center-block" src="images/atunEncostrado.jpg" alt="Generic placeholder image" width="500" height="500">
@@ -137,7 +137,7 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">O mejor aun!, nuestra <span class="text-muted">Tabla Miro Vaikava</span></h2>
+        <h2 class="featurette-heading">O mejor aún!, nuestra <span class="text-muted">Tabla Miro Vaikava</span></h2>
         <p class="lead">Sabrosas papas rústicas, mini ceviche de pulpo, camarones y calamares apanados. Acompañado de nuestra especial salsa de la casa.</p>
       </div>
       <div class="col-md-5 order-md-1">

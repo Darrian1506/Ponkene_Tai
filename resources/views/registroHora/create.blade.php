@@ -46,10 +46,10 @@
             // Replace '400px' below with where you want the format to change.
             if (window.matchMedia('(max-width: 800px)').matches) {
                 // Use this format for windows with a width up to the value above.
-                clockElement.textContent = date.toDateString();
+                clockElement.textContent = date.toLocaleString();
             } else {
                 // While this format will be used for larger windows.
-                clockElement.textContent = date.toString();
+                clockElement.textContent = date.toLocaleString();
             }
         }
     

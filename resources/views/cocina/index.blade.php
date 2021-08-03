@@ -2,23 +2,24 @@
 
 @section('main')
     <div class="d-flex mt-2 justify-content-start">
-        <form action="">
+        <form action="" class="col-2">
             <input type="search"  name="search" hidden value="">
             <button  type="submit" class="btn btn-secondary" >Todas</button>
         </form>
-        <form action="">
+        <form action="" class="col-2">
             <input type="search" name="search" hidden value="C">
             <button class="btn btn-secondary mx-4">Creadas</button>
         </form>
-        <form action="">
+        <form action="" class="col-2">
             <input type="search" name="search" hidden value="P">
             <button class="btn btn-secondary mx-4">En Preparación</button>
         </form>
-        <form action="">
+        <form action="" class="col-2">
             <input type="search" name="search" hidden value="L">
             <button class="btn btn-secondary mx-4">Listas</button>
-        </form>        
-        <span id="clock"></span>
+        </form>
+        <div class="col-2"></div>
+        <span class="col-1 justify-content-end" id="clock"></span>
     </div>
     <hr>
     @foreach ($comandas as $comanda)
@@ -50,12 +51,12 @@
                 </div>
             </div>
             <div class="card-body d-flex">
-                <div class="col-11">
+                <div class="col-10">
                     <div class="row">
                         @foreach ($comanda->plato as $plato_comanda)                        
                             @foreach ($platos as $plato)
                                 @if ($plato->cod_plato == $plato_comanda->cod_plato )
-                                    <div class="card text-white bg-primary mb-2" style="height:200px; width: 200px">
+                                    <div class="card text-white bg-primary mb-2" style="min-height:150px; min-width: 150px;max-height:200px;max-width:200px">
                                         <div class="card-header">Cantidad : {{$plato_comanda->pivot->cantidad}}</div>
                                         <div class="card-body">
                                             <div class="col">
@@ -80,7 +81,7 @@
                         @foreach ($comanda->promocion as $promocion_comanda)                      
                             @foreach ($promociones as $promocion)
                                 @if ($promocion->cod_promocion == $promocion_comanda->cod_promocion)
-                                    <div class="card text-white bg-secondary mb-2" style="height:150px; width: 150px">
+                                    <div class="card text-white bg-secondary mb-2 " style="height:150px; width: 150px">
                                         <div class="card-header">Cantidad : {{$promocion_comanda->pivot->cantidad}}</div>
                                         <div class="card-body">
                                             <div class="col">
@@ -116,8 +117,36 @@
                     </div>
                 </div>
                 
-                <div class="col-1">
-                    <button class="btn btn-success" style="width:100; height:100"></button>
+                <div class="col-2  align-content-center" style="border-left: thin gray solid" >
+                    <div class="row align-content-center ms-5 mb-3">
+                        <form method="POST" action="{{route('cocina.update',$comanda->cod_comanda)}}">
+                            @csrf
+                            @method('PUT')
+                            <input type="text" name="estado" id="estado" value="C" hidden>
+                            <button type="submit" class="btn btn-info " style="width: 130px;min-height:100px">Creada</button>
+                        </form>
+                        
+                    </div>
+                    <div class="row align-content-center ms-5 mb-3">
+                        <form method="POST" action="{{route('cocina.update',$comanda->cod_comanda)}}">
+                            @csrf
+                            @method('PUT')
+                            <input type="text" name="estado" id="estado" value="P" hidden>
+                            <button type="submit" class="btn btn-danger" style="width: 130px;min-height:100px">En Preparación</button>
+                        </form>
+                        
+                    </div>
+                    <div class="row align-content-center ms-5 mb-3">
+                        <form method="POST" action="{{route('cocina.update',$comanda->cod_comanda)}}">
+                            @csrf
+                            @method('PUT')
+                            <input type="text" name="estado" id="estado" value="L" hidden>
+                            <button class="btn btn-success" style="width: 130px;min-height:100px">Listo</button>    
+                        </form>
+                        
+                    </div>
+                    
+                    
                 </div>
             </div>       
         </div>                       
@@ -194,9 +223,11 @@
         @endforeach  --}}
         <script type="text/javascript">
             var clockElement = document.getElementById('clock');
+            
         
             function clock() {
-                clockElement.textContent = new Date().toString();
+                clockElement.textContent = new Date().toLocaleString();
+                
             }
         
             setInterval(clock, 1000);

@@ -74,6 +74,7 @@ Route::delete('/mesas/{mesa}','MesaController@destroy')->name('mesa.destroy');
 /*COMANDA*/
 
 Route::get('/comandas/cocina','CocinaController@index')->name('cocina.index');
+Route::put('/comandas/{cocina}','CocinaController@update')->name('cocina.update');
 
 /*RESGISTRO DE HORA*/
 

@@ -27,7 +27,7 @@ class AdminAuth
                     return redirect()->route('cocina.index');
                     break;
                 default:
-                    return $next($request);
+                    return redirect()->back();
                     break;
             }
             

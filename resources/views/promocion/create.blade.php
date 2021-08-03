@@ -4,7 +4,7 @@
     <div class="row d-flex justify-content-center mt-2">
         <div class="card w-50">
             <div class="card-title mt-2">
-                
+                Crear Promocion
             </div>
             <div class="card-body">
                 
