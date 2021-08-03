@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Cocina;
 use App\Models\Plato;
 use App\Models\Promocion;
+use App\Models\Insumo;
 use Illuminate\Http\Request;
+
 
 class CocinaController extends Controller
 {
@@ -25,16 +27,18 @@ class CocinaController extends Controller
         $query = trim($request->get(key:'search'));
         if ($query != "") {
             $comandas = Cocina::where('estado','LIKE',$query)
-                    ->orderBy('created_at','desc')->get();
+                    ->orderBy('created_at','asc')->get();
             $platos = Plato::orderBy('precio')->get();
+            $insumos = Insumo::orderBy('precio')->get();
             $promociones = Promocion::orderBy('precio')->get();
-            return view('cocina.index',compact('comandas','platos','promociones'));    
+            return view('cocina.index',compact('comandas','platos','promociones','insumos'));    
         }
         else {
             $platos = Plato::orderBy('precio')->get();
-            $comandas = Cocina::orderBy('created_at','desc')->get();
+            $insumos = Insumo::orderBy('precio')->get();
+            $comandas = Cocina::orderBy('created_at','asc')->get();
             $promociones = Promocion::orderBy('precio')->get();
-            return view('cocina.index',compact('comandas','platos','promociones'));
+            return view('cocina.index',compact('comandas','platos','promociones','insumos'));
         }
         
     }

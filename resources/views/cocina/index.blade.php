@@ -18,6 +18,7 @@
             <input type="search" name="search" hidden value="L">
             <button class="btn btn-secondary mx-4">Listas</button>
         </form>        
+        <span id="clock"></span>
     </div>
     <hr>
     @foreach ($comandas as $comanda)
@@ -43,46 +44,80 @@
                                     @break 
                             @endswitch
                         </th>
-                        <th></th>
+                        
                     </thead>
                 </table> 
                 </div>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    @foreach ($comanda->plato as $plato_comanda)                        
-                        @foreach ($platos as $plato)
-                            @if ($plato->cod_plato == $plato_comanda->cod_plato )
-                                <div class="card text-white bg-primary mb-2" style="height:150px; width: 150px">
-                                    <div class="card-header">Cantidad : {{$plato_comanda->pivot->cantidad}}</div>
-                                    <div class="card-body">
-                                        <div class="col">
-                                            {{$plato->nombre}} 
-                                            {{--Cod Comanda:{{$comanda->cod_comanda}}
-                                            {{$comanda->mesa}}--}}
+            <div class="card-body d-flex">
+                <div class="col-11">
+                    <div class="row">
+                        @foreach ($comanda->plato as $plato_comanda)                        
+                            @foreach ($platos as $plato)
+                                @if ($plato->cod_plato == $plato_comanda->cod_plato )
+                                    <div class="card text-white bg-primary mb-2" style="height:200px; width: 200px">
+                                        <div class="card-header">Cantidad : {{$plato_comanda->pivot->cantidad}}</div>
+                                        <div class="card-body">
+                                            <div class="col">
+                                                {{$plato->nombre}}
+                                                
+                                                
+                                                {{--Cod Comanda:{{$comanda->cod_comanda}}
+                                                {{$comanda->mesa}}--}}
+                                            </div>
                                         </div>
-                                    </div>                                        
-                                </div> 
-                            @endif
-                        @endforeach                                                
-                    @endforeach
-
-                    @foreach ($comanda->promocion as $promocion_comanda)                      
-                        @foreach ($promociones as $promocion)
-                            @if ($promocion->cod_promocion == $promocion_comanda->cod_promocion)
-                                <div class="card text-white bg-secondary mb-2" style="height:150px; width: 150px">
-                                    <div class="card-header">Cantidad : {{$promocion_comanda->pivot->cantidad}}</div>
-                                    <div class="card-body">
-                                        <div class="col">
-                                            {{$promocion->nombre}}
-                                            {{--Cod Comanda:{{$comanda->cod_comanda}}
-                                            {{$comanda->mesa}}--}}
+                                        <div class="card-footer" style="">
+                                            <small>
+                                                {{$plato_comanda->pivot->descripcion}}
+                                            </small>
+                                            
+                                        </div>                                         
+                                    </div> 
+                                @endif
+                            @endforeach                                                
+                        @endforeach
+    
+                        @foreach ($comanda->promocion as $promocion_comanda)                      
+                            @foreach ($promociones as $promocion)
+                                @if ($promocion->cod_promocion == $promocion_comanda->cod_promocion)
+                                    <div class="card text-white bg-secondary mb-2" style="height:150px; width: 150px">
+                                        <div class="card-header">Cantidad : {{$promocion_comanda->pivot->cantidad}}</div>
+                                        <div class="card-body">
+                                            <div class="col">
+                                                {{$promocion->nombre}}
+    
+                                                {{--Cod Comanda:{{$comanda->cod_comanda}}
+                                                {{$comanda->mesa}}--}}
+                                            </div>
+                                        </div>                                        
+                                    </div> 
+                                @endif
+                            @endforeach                                                
+                        @endforeach
+    
+                        @foreach ($comanda->insumo as $insumo_comanda)                      
+                            @foreach ($insumos as $insumo)
+                                @if ($insumo->cod_insumo == $insumo_comanda->cod_insumo)
+                                    <div class="card text-white bg-success mb-2" style="height:150px; width: 150px">
+                                        <div class="card-header">Cantidad : {{$insumo_comanda->pivot->cantidad}}</div>
+                                        <div class="card-body">
+                                            <div class="col">
+                                                {{$insumo->nombre}}
+                                                
+                                                {{--Cod Comanda:{{$comanda->cod_comanda}}
+                                                {{$comanda->mesa}}--}}
+                                            </div>
                                         </div>
-                                    </div>                                        
-                                </div> 
-                            @endif
-                        @endforeach                                                
-                    @endforeach
+                                                                               
+                                    </div> 
+                                @endif
+                            @endforeach                                                
+                        @endforeach
+                    </div>
+                </div>
+                
+                <div class="col-1">
+                    <button class="btn btn-success" style="width:100; height:100"></button>
                 </div>
             </div>       
         </div>                       
@@ -157,5 +192,14 @@
         </div>
         <hr>
         @endforeach  --}}
+        <script type="text/javascript">
+            var clockElement = document.getElementById('clock');
+        
+            function clock() {
+                clockElement.textContent = new Date().toString();
+            }
+        
+            setInterval(clock, 1000);
+        </script>
 
 @endsection

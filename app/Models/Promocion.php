@@ -24,8 +24,8 @@ class Promocion extends Authenticable
     public function cocina(){
         return $this->belongsToMany('App\Models\Cocina','comanda_promocion');
     }
-    public function comandas(){
+    public function comanda(){
         return $this->belongsToMany('App\Models\Comanda','comanda_promocion','cod_promo','cod_comanda')->withPivot(['cantidad']);
     }
-    
+
 }
