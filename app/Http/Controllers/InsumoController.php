@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Insumo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreInsumoRequest;
 use Illuminate\Validation\ValidationException;
 
 class InsumoController extends Controller
@@ -40,7 +41,7 @@ class InsumoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInsumoRequest $request)
     {
         $newInsumo = new Insumo();
         $newInsumo->nombre = $request->nombre;
@@ -70,6 +71,7 @@ class InsumoController extends Controller
     public function edit(Insumo $insumo)
     {
         return view('insumo.edit',compact('insumo'));
+        $this->middleware('auth.admin',['only'=>['index']]);
     }
 
     /**
