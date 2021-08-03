@@ -17,7 +17,7 @@ class Plato extends Authenticable
     public $incrementing = true;
     
 
-    public function insumos(){
+    public function insumo(){
         return $this->belongsToMany('App\Models\Insumo','insumo_plato','cod_plato','cod_insu');
     }
 

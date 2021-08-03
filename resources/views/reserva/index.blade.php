@@ -6,7 +6,6 @@
     
     <div class="d-flex mt-2 justify-content-between">
         <h3 class="order-1">Lista de Reservas</h3>
-        <a href="{{route('reserva.create')}}" class="btn btn-success order-2">Agregar Reserva</a>
     </div>
 
     <div class="row mt-2">

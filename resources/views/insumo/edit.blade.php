@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group mt-4">
                             <a href="{{ route('insumo.index') }}" class="btn btn-warning">Cancelar</a>
-                            <button type="submit" class="btn btn-primary" >Guradar Cambios</button>
+                            <button type="submit" class="btn btn-primary" >Guardar Cambios</button>
                         </div>
                     </form>
                 </div>
