@@ -52,6 +52,11 @@ class EmpleadoController extends Controller
         return view('empleado.create');
     }
 
+    public function carta()
+    {
+        return view('carta');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -23,4 +23,8 @@ class Empleado extends Authenticable
     public function reservas(){
         return $this->hasMany('App\Models\Reserva', 'cod_reserva');
     }
+
+    public function registroHoras(){
+        return $this->hasMany('App\Models\RegistroHora', 'fecha','rut','hora');
+    }
 }

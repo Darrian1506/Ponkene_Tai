@@ -74,3 +74,11 @@ Route::delete('/mesas/{mesa}','MesaController@destroy')->name('mesa.destroy');
 /*COMANDA*/
 
 Route::get('/comandas/cocina','CocinaController@index')->name('cocina.index');
+
+/*RESGISTRO DE HORA*/
+
+//Route::get('/reserva/index','ReservaController@index')->name('reserva.index');
+Route::get('/registroHora/create','RegistroHoraController@create')->name('registroHora.create');
+Route::post('/registroHora','RegistroHoraController@store')->name('registroHora.store');
+//Route::get('/reserva/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
+//Route::put('/reserva/{reserva}/{estado}','ReservaController@update')->name('reserva.update');
