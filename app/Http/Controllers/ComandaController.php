@@ -128,7 +128,7 @@ class ComandaController extends Controller
             for ($i=0; $i < count($lista) ; $i++) {
                 if($lista[$i] != ''){
                     $platoComen= explode('::', $lista[$i]);
-                    $comanda->platos()->attach([($platoComen[0]) => ['descripcion' => ($platoComen[1])]]);
+                    $comanda->platos()->sync([($platoComen[0]) => ['descripcion' => ($platoComen[1])]]);
                 }
             }
         }
