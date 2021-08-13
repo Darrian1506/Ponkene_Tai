@@ -28,18 +28,30 @@ class CocinaController extends Controller
         $query = trim($request->get(key:'search'));
         if ($query != "") {
             $comandas = Cocina::where('estado','LIKE',$query)
-                    ->where('fecha','LIKE',"%$date%")
+                    /*->where('fecha','LIKE',"%$date%")*/
                     ->orderBy('created_at','asc')->get();
             $platos = Plato::orderBy('precio')->get();
             $insumos = Insumo::orderBy('precio')->get();
             $promociones = Promocion::orderBy('precio')->get();
-            return view('cocina.index',compact('comandas','platos','promociones','insumos'));    
+            
+
+            if ($query == 'C'){
+                return view('cocina.creadas',compact('comandas','platos','promociones','insumos'));    
+            }
+            if ($query == 'P'){
+                return view('cocina.preparacion',compact('comandas','platos','promociones','insumos'));    
+            }
+            if ($query == 'L'){
+                return view('cocina.listas',compact('comandas','platos','promociones','insumos'));    
+            }
+
+            
         }
         else {
             $platos = Plato::orderBy('precio')->get();
             $insumos = Insumo::orderBy('precio')->get();
-            $comandas = Cocina::where('fecha','LIKE',"%$date%")
-                                ->orderBy('created_at','asc')->get();
+            $comandas = Cocina::/*where('fecha','LIKE',"%$date%")
+                                ->*/orderBy('created_at','asc')->get();
             $promociones = Promocion::orderBy('precio')->get();
             return view('cocina.index',compact('comandas','platos','promociones','insumos'));
         }
@@ -86,7 +98,7 @@ class CocinaController extends Controller
      */
     public function edit(Cocina $cocina)
     {
-        
+        //
     }
 
     /**
@@ -98,11 +110,10 @@ class CocinaController extends Controller
      */
     public function update(Request $request, Cocina $cocina)
     {
-
         $comanda = Cocina::find($cocina->cod_comanda);
         $comanda->estado = $request->estado;
         $comanda->save();
-        return redirect()->route('cocina.index');
+        return redirect()->back();
     }
 
     /**

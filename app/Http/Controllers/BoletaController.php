@@ -14,7 +14,8 @@ class BoletaController extends Controller
      */
     public function index()
     {
-        //
+        $boletas = Boleta::get();
+        return view('boleta.index',compact('boletas'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BoletaController extends Controller
      */
     public function create()
     {
-        //
+        return view('boleta.create');
     }
 
     /**

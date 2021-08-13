@@ -76,10 +76,19 @@ Route::delete('/mesas/{mesa}','MesaController@destroy')->name('mesa.destroy');
 Route::get('/comandas/cocina','CocinaController@index')->name('cocina.index');
 Route::put('/comandas/{cocina}','CocinaController@update')->name('cocina.update');
 
-/*RESGISTRO DE HORA*/
+/*REGISTRO DE HORA*/
 
 //Route::get('/reserva/index','ReservaController@index')->name('reserva.index');
+Route::get('/registroHora','RegistroHoraController@index')->name('registroHora.index');
 Route::get('/registroHora/create','RegistroHoraController@create')->name('registroHora.create');
 Route::post('/registroHora','RegistroHoraController@store')->name('registroHora.store');
 //Route::get('/reserva/{plato}/edit','App\Http\Controllers\PlatoController@edit')->name('plato.edit');
 //Route::put('/reserva/{reserva}/{estado}','ReservaController@update')->name('reserva.update');
+
+
+
+/*BOLETA*/
+
+Route::get('/boleta','BoletaController@index')->name('boleta.index');
+Route::get('/boleta/create','BoletaController@create')->name('boleta.create');
+Route::post('/boleta','BoletaController@store')->name('boleta.store');

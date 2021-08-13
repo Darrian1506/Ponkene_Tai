@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     <li class="nav item mx-2">
-                        <a href="{{route('registroHora.create')}}" class="nav-link border rounded-top align-items-start " style="color: white;font-size: 1rem">
+                        <a href="{{route('registroHora.index')}}" class="nav-link border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Registro de Hora
                         </a>
                     </li>
@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li class="nav item  mx-2">
-                        <a href="#" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
+                        <a href="{{route('boleta.index')}}" class="nav-link  border rounded-top align-items-start " style="color: white;font-size: 1rem">
                             Caja
                         </a>
                     </li>

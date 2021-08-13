@@ -22,7 +22,7 @@
         <span class="col-1 justify-content-end" id="clock"></span>
     </div>
     <hr>
-    <h4>Todas</h4>
+    <h4>Listas</h4>
     @foreach ($comandas as $comanda)
     <div class="card border-dark mb-3 text-center">
         <div class="card-header">
@@ -52,7 +52,6 @@
                 </div>
             </div>
             <div class="card-body d-flex">
-                
                 <div class="col-10">
                     <div class="row">
                         @foreach ($comanda->plato as $plato_comanda)                        

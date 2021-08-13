@@ -14,7 +14,8 @@ class RegistroHoraController extends Controller
      */
     public function index()
     {
-        //
+        $registroHoras = RegistroHora::get();
+        return view('registroHora.index',compact('registroHoras'));
     }
 
     /**
